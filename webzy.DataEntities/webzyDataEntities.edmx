@@ -1,0 +1,2877 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="webzyModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="webzyModelStoreContainer">
+          <EntitySet Name="ContactPerson" EntityType="webzyModel.Store.ContactPerson" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContactPersonLog" EntityType="webzyModel.Store.ContactPersonLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Country" EntityType="webzyModel.Store.Country" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CountryLog" EntityType="webzyModel.Store.CountryLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customer" EntityType="webzyModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CustomerLog" EntityType="webzyModel.Store.CustomerLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmailAttachment" EntityType="webzyModel.Store.EmailAttachment" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Emails" EntityType="webzyModel.Store.Emails" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FileUpload" EntityType="webzyModel.Store.FileUpload" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Group" EntityType="webzyModel.Store.Group" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="GroupLog" EntityType="webzyModel.Store.GroupLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LDAPSetting" EntityType="webzyModel.Store.LDAPSetting" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Right" EntityType="webzyModel.Store.Right" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Role" EntityType="webzyModel.Store.Role" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoleLog" EntityType="webzyModel.Store.RoleLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoleRight" EntityType="webzyModel.Store.RoleRight" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoleRightLog" EntityType="webzyModel.Store.RoleRightLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Site" EntityType="webzyModel.Store.Site" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SiteLog" EntityType="webzyModel.Store.SiteLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Status" EntityType="webzyModel.Store.Status" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TicketClassificationName" EntityType="webzyModel.Store.TicketClassificationName" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TicketLog" EntityType="webzyModel.Store.TicketLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TicketPriority" EntityType="webzyModel.Store.TicketPriority" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TicketReportMethod" EntityType="webzyModel.Store.TicketReportMethod" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TicketResolutionType" EntityType="webzyModel.Store.TicketResolutionType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Tickets" EntityType="webzyModel.Store.Tickets" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TicketStatus" EntityType="webzyModel.Store.TicketStatus" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TicketType" EntityType="webzyModel.Store.TicketType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserGroup" EntityType="webzyModel.Store.UserGroup" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserGroupLog" EntityType="webzyModel.Store.UserGroupLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WebUser" EntityType="webzyModel.Store.WebUser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WebUserLog" EntityType="webzyModel.Store.WebUserLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WebUserRole" EntityType="webzyModel.Store.WebUserRole" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="WebUserRoleLog" EntityType="webzyModel.Store.WebUserRoleLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CustomerView" EntityType="webzyModel.Store.CustomerView" store:Type="Views" store:Schema="dbo" store:Name="CustomerView">
+            <DefiningQuery>SELECT 
+      [CustomerView].[CustomerName] AS [CustomerName], 
+      [CustomerView].[CustomerStatusId] AS [CustomerStatusId], 
+      [CustomerView].[CustomerId] AS [CustomerId], 
+      [CustomerView].[CreatedBy] AS [CreatedBy], 
+      [CustomerView].[ModifiedBy] AS [ModifiedBy], 
+      [CustomerView].[ModifiedOn] AS [ModifiedOn], 
+      [CustomerView].[CustomerStatus] AS [CustomerStatus]
+      FROM [dbo].[CustomerView] AS [CustomerView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GroupView" EntityType="webzyModel.Store.GroupView" store:Type="Views" store:Schema="dbo" store:Name="GroupView">
+            <DefiningQuery>SELECT 
+      [GroupView].[Id] AS [Id], 
+      [GroupView].[GroupName] AS [GroupName], 
+      [GroupView].[ViewAbleByCustomer] AS [ViewAbleByCustomer], 
+      [GroupView].[EmailAccount] AS [EmailAccount], 
+      [GroupView].[Status] AS [Status]
+      FROM [dbo].[GroupView] AS [GroupView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SiteView" EntityType="webzyModel.Store.SiteView" store:Type="Views" store:Schema="dbo" store:Name="SiteView">
+            <DefiningQuery>SELECT 
+      [SiteView].[SiteId] AS [SiteId], 
+      [SiteView].[SiteName] AS [SiteName], 
+      [SiteView].[SiteAddress] AS [SiteAddress], 
+      [SiteView].[SiteStatusId] AS [SiteStatusId], 
+      [SiteView].[SiteStatus] AS [SiteStatus], 
+      [SiteView].[CustomerName] AS [CustomerName], 
+      [SiteView].[Country] AS [Country], 
+      [SiteView].[CountryFk] AS [CountryFk], 
+      [SiteView].[CustomerId] AS [CustomerId]
+      FROM [dbo].[SiteView] AS [SiteView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserRightsView" EntityType="webzyModel.Store.UserRightsView" store:Type="Views" store:Schema="dbo" store:Name="UserRightsView">
+            <DefiningQuery>SELECT 
+      [UserRightsView].[Id] AS [Id], 
+      [UserRightsView].[Name] AS [Name], 
+      [UserRightsView].[Role] AS [Role], 
+      [UserRightsView].[Rights] AS [Rights], 
+      [UserRightsView].[Priority] AS [Priority], 
+      [UserRightsView].[LoginId] AS [LoginId]
+      FROM [dbo].[UserRightsView] AS [UserRightsView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="WebUserView" EntityType="webzyModel.Store.WebUserView" store:Type="Views" store:Schema="dbo" store:Name="WebUserView">
+            <DefiningQuery>SELECT 
+      [WebUserView].[Id] AS [Id], 
+      [WebUserView].[Name] AS [Name], 
+      [WebUserView].[LoginId] AS [LoginId], 
+      [WebUserView].[EmailAddress] AS [EmailAddress], 
+      [WebUserView].[ContactNumber] AS [ContactNumber], 
+      [WebUserView].[Status] AS [Status], 
+      [WebUserView].[RoleName] AS [RoleName], 
+      [WebUserView].[GroupName] AS [GroupName], 
+      [WebUserView].[Remark] AS [Remark]
+      FROM [dbo].[WebUserView] AS [WebUserView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ContactPerson_Customer" Association="webzyModel.Store.FK_ContactPerson_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="ContactPerson" EntitySet="ContactPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactPerson_Status" Association="webzyModel.Store.FK_ContactPerson_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="ContactPerson" EntitySet="ContactPerson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Status" Association="webzyModel.Store.FK_Customer_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_WebUser" Association="webzyModel.Store.FK_Customer_WebUser">
+            <End Role="WebUser" EntitySet="WebUser" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FileUpload_Ticket" Association="webzyModel.Store.FK_FileUpload_Ticket">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="FileUpload" EntitySet="FileUpload" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomingAttachment_IncomingEmail" Association="webzyModel.Store.FK_IncomingAttachment_IncomingEmail">
+            <End Role="Emails" EntitySet="Emails" />
+            <End Role="EmailAttachment" EntitySet="EmailAttachment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomingEmail_Tickets" Association="webzyModel.Store.FK_IncomingEmail_Tickets">
+            <End Role="Tickets" EntitySet="Tickets" />
+            <End Role="Emails" EntitySet="Emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Status" Association="webzyModel.Store.FK_Role_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleRight_Right" Association="webzyModel.Store.FK_RoleRight_Right">
+            <End Role="Right" EntitySet="Right" />
+            <End Role="RoleRight" EntitySet="RoleRight" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleRight_Role" Association="webzyModel.Store.FK_RoleRight_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RoleRight" EntitySet="RoleRight" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Country" Association="webzyModel.Store.FK_Site_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="Site" EntitySet="Site" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Customer" Association="webzyModel.Store.FK_Site_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Site" EntitySet="Site" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Status" Association="webzyModel.Store.FK_Site_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Site" EntitySet="Site" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Group" Association="webzyModel.Store.FK_Tickets_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_ReportMethod" Association="webzyModel.Store.FK_Tickets_ReportMethod">
+            <End Role="TicketReportMethod" EntitySet="TicketReportMethod" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketClassfication" Association="webzyModel.Store.FK_Tickets_TicketClassfication">
+            <End Role="TicketClassificationName" EntitySet="TicketClassificationName" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketPriority" Association="webzyModel.Store.FK_Tickets_TicketPriority">
+            <End Role="TicketPriority" EntitySet="TicketPriority" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketResolution" Association="webzyModel.Store.FK_Tickets_TicketResolution">
+            <End Role="TicketResolutionType" EntitySet="TicketResolutionType" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketStatus" Association="webzyModel.Store.FK_Tickets_TicketStatus">
+            <End Role="TicketStatus" EntitySet="TicketStatus" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketType" Association="webzyModel.Store.FK_Tickets_TicketType">
+            <End Role="TicketType" EntitySet="TicketType" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_Group" Association="webzyModel.Store.FK_UserGroup_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="UserGroup" EntitySet="UserGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserGroup_WebUser" Association="webzyModel.Store.FK_UserGroup_WebUser">
+            <End Role="WebUser" EntitySet="WebUser" />
+            <End Role="UserGroup" EntitySet="UserGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WebUser_Status" Association="webzyModel.Store.FK_WebUser_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="WebUser" EntitySet="WebUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WebUserRole_WebUser" Association="webzyModel.Store.FK_WebUserRole_WebUser">
+            <End Role="WebUser" EntitySet="WebUser" />
+            <End Role="WebUserRole" EntitySet="WebUserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WebUserRole_WebUserRole" Association="webzyModel.Store.FK_WebUserRole_WebUserRole">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="WebUserRole" EntitySet="WebUserRole" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ContactPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerFk" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="HPNumber" Type="varchar" MaxLength="50" />
+          <Property Name="OfficeNumber" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="200" />
+          <Property Name="StatusFk" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactPersonLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="250" />
+          <Property Name="Name" Type="varchar" MaxLength="250" />
+          <Property Name="HPNumber" Type="varchar" MaxLength="50" />
+          <Property Name="OfficeNumber" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CountryCode" Type="int" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CountryLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="varchar" MaxLength="50" />
+          <Property Name="CountryCode" Type="int" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="StatusFk" Type="int" />
+          <Property Name="CreatedByFk" Type="int" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CustomerLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="250" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EmailAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IncomeEmailFk" Type="int" />
+          <Property Name="FileName" Type="varchar" MaxLength="500" />
+          <Property Name="FileLocation" Type="varchar" MaxLength="500" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Emails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TicketFk" Type="int" />
+          <Property Name="TicketNo" Type="varchar" MaxLength="250" />
+          <Property Name="UID" Type="varchar" MaxLength="250" />
+          <Property Name="ReceivedTime" Type="datetime" Nullable="false" />
+          <Property Name="ToAddress" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="FromAddress" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="CCAddress" Type="varchar" MaxLength="500" />
+          <Property Name="Subject" Type="varchar" MaxLength="500" />
+          <Property Name="EmailContent" Type="varchar" />
+          <Property Name="EmailLocation" Type="varchar" MaxLength="250" />
+          <Property Name="Attachment" Type="bit" Nullable="false" />
+          <Property Name="Ignore" Type="bit" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="ModifiedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FileUpload">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TicketFk" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Path" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="Remarks" Type="varchar" MaxLength="500" />
+          <Property Name="ModifiedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ViewAbleByCustomer" Type="bit" Nullable="false" />
+          <Property Name="EmailAccount" Type="varchar" MaxLength="250" />
+          <Property Name="StatusFk" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GroupLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ViewAbleByCustomer" Type="bit" Nullable="false" />
+          <Property Name="EmailAccount" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Status" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="LDAPSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DomainName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="LDAPAddress" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Remark" Type="varchar" MaxLength="500" />
+          <Property Name="ModifyBy" Type="varchar" MaxLength="250" />
+          <Property Name="ModifyOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Right">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="StatusFk" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RoleLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="500" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RoleRight">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleFk" Type="int" />
+          <Property Name="RightFk" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="RoleRightLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="RightsName" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerFk" Type="int" Nullable="false" />
+          <Property Name="CountryFk" Type="int" />
+          <Property Name="SiteName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Address" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="StatusFk" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SiteLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="250" />
+          <Property Name="Country" Type="varchar" MaxLength="250" />
+          <Property Name="SiteName" Type="varchar" MaxLength="250" />
+          <Property Name="Address" Type="varchar" MaxLength="500" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StatusName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TicketClassificationName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ClassificationName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TicketLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TicketNo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TicketOwner" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="NotifyOwner" Type="bit" Nullable="false" />
+          <Property Name="AssignTosUer" Type="int" />
+          <Property Name="AssignTosGroup" Type="int" />
+          <Property Name="TicketType" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Priority" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ReportMethod" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="FileUpload" Type="bit" Nullable="false" />
+          <Property Name="Customer" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="ContactPerson" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="NotifyContact" Type="bit" Nullable="false" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="250" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="250" />
+          <Property Name="SiteName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="SiteAddress" Type="varchar" MaxLength="500" />
+          <Property Name="TicketDetails" Type="varchar" Nullable="false" />
+          <Property Name="TicketStatus" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="OnSite" Type="bit" Nullable="false" />
+          <Property Name="Comment" Type="varchar" />
+          <Property Name="Duration" Type="int" Nullable="false" />
+          <Property Name="Resolution" Type="varchar" />
+          <Property Name="Subscribers" Type="varchar" MaxLength="500" />
+          <Property Name="AdditionField1" Type="varchar" MaxLength="250" />
+          <Property Name="AdditionField2" Type="varchar" MaxLength="250" />
+          <Property Name="AdditionField3" Type="varchar" MaxLength="250" />
+          <Property Name="AdditionField4" Type="varchar" MaxLength="250" />
+          <Property Name="AdditionField5" Type="varchar" MaxLength="250" />
+          <Property Name="RecordingId" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" />
+          <Property Name="ModifiedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketPriority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PriorityName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="SLA" Type="decimal" Nullable="false" Precision="4" Scale="1" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TicketReportMethod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MethodName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TicketResolutionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ResolutionTypeName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TicketNo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ReceivedTime" Type="datetime" Nullable="false" />
+          <Property Name="ResponseTime" Type="datetime" />
+          <Property Name="TicketOwnerFk" Type="int" Nullable="false" />
+          <Property Name="NotifyOwner" Type="bit" Nullable="false" />
+          <Property Name="AssignTosUerFk" Type="int" />
+          <Property Name="AssigntoGroupFk" Type="int" />
+          <Property Name="TicketTypeFk" Type="int" Nullable="false" />
+          <Property Name="PriorityFk" Type="int" Nullable="false" />
+          <Property Name="TicketClassificationFk" Type="int" Nullable="false" />
+          <Property Name="ReportMethodFk" Type="int" Nullable="false" />
+          <Property Name="ContactPerson" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="ContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="ContactEmail" Type="varchar" MaxLength="250" />
+          <Property Name="NotifyCustomer" Type="bit" Nullable="false" />
+          <Property Name="SiteName" Type="varchar" MaxLength="250" />
+          <Property Name="SiteAddress" Type="varchar" MaxLength="500" />
+          <Property Name="CustomerFk" Type="int" />
+          <Property Name="TicketDetails" Type="varchar" Nullable="false" />
+          <Property Name="TicketStatusFk" Type="int" Nullable="false" />
+          <Property Name="ResolutionFk" Type="int" />
+          <Property Name="Resolution" Type="varchar" />
+          <Property Name="FileUpload" Type="bit" Nullable="false" />
+          <Property Name="OnSite" Type="bit" Nullable="false" />
+          <Property Name="TicketClosed" Type="bit" Nullable="false" />
+          <Property Name="KIVDuration" Type="int" />
+          <Property Name="TicketDuration" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="varchar" />
+          <Property Name="Escalation" Type="varchar" MaxLength="50" />
+          <Property Name="Subscribers" Type="varchar" MaxLength="500" />
+          <Property Name="AdditionField1" Type="varchar" MaxLength="250" />
+          <Property Name="AdditionField2" Type="varchar" MaxLength="250" />
+          <Property Name="AdditionField3" Type="varchar" MaxLength="250" />
+          <Property Name="AdditionField4" Type="varchar" MaxLength="250" />
+          <Property Name="AdditionField5" Type="varchar" MaxLength="250" />
+          <Property Name="CreatedByFk" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="varchar" />
+          <Property Name="ModifiedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TicketType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserFk" Type="int" Nullable="false" />
+          <Property Name="GroupFk" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="UserGroupLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WebUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="LoginId" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="500" />
+          <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+          <Property Name="StatusFk" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WebUserLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="500" />
+          <Property Name="LoginId" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="500" />
+          <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WebUserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WebUserFk" Type="int" />
+          <Property Name="RoleFk" Type="int" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="WebUserRoleLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WebUserName" Type="varchar" MaxLength="500" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'webzy.dbo.CustomerView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="CustomerView">
+          <Key>
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="ModifiedBy" />
+            <PropertyRef Name="ModifiedOn" />
+            <PropertyRef Name="CustomerStatus" />
+          </Key>
+          <Property Name="CustomerName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="CustomerStatusId" Type="int" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="ModifiedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+          <Property Name="CustomerStatus" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'webzy.dbo.GroupView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="GroupView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="GroupName" />
+            <PropertyRef Name="ViewAbleByCustomer" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ViewAbleByCustomer" Type="bit" Nullable="false" />
+          <Property Name="EmailAccount" Type="varchar" MaxLength="250" />
+          <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'webzy.dbo.SiteView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="SiteView">
+          <Key>
+            <PropertyRef Name="SiteId" />
+            <PropertyRef Name="SiteName" />
+            <PropertyRef Name="SiteAddress" />
+            <PropertyRef Name="SiteStatusId" />
+            <PropertyRef Name="SiteStatus" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="SiteId" Type="int" Nullable="false" />
+          <Property Name="SiteName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="SiteAddress" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="SiteStatusId" Type="int" Nullable="false" />
+          <Property Name="SiteStatus" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CustomerName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Country" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="CountryFk" Type="int" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'webzy.dbo.UserRightsView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="UserRightsView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Role" />
+            <PropertyRef Name="Rights" />
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Role" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Rights" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="LoginId" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'webzy.dbo.WebUserView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="WebUserView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="LoginId" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="LoginId" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="500" />
+          <Property Name="ContactNumber" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <Association Name="FK_ContactPerson_Customer">
+          <End Role="Customer" Type="webzyModel.Store.Customer" Multiplicity="1" />
+          <End Role="ContactPerson" Type="webzyModel.Store.ContactPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactPerson">
+              <PropertyRef Name="CustomerFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactPerson_Status">
+          <End Role="Status" Type="webzyModel.Store.Status" Multiplicity="0..1" />
+          <End Role="ContactPerson" Type="webzyModel.Store.ContactPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactPerson">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Status">
+          <End Role="Status" Type="webzyModel.Store.Status" Multiplicity="0..1" />
+          <End Role="Customer" Type="webzyModel.Store.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_WebUser">
+          <End Role="WebUser" Type="webzyModel.Store.WebUser" Multiplicity="1" />
+          <End Role="Customer" Type="webzyModel.Store.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreatedByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FileUpload_Ticket">
+          <End Role="Tickets" Type="webzyModel.Store.Tickets" Multiplicity="1" />
+          <End Role="FileUpload" Type="webzyModel.Store.FileUpload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FileUpload">
+              <PropertyRef Name="TicketFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomingAttachment_IncomingEmail">
+          <End Role="Emails" Type="webzyModel.Store.Emails" Multiplicity="0..1" />
+          <End Role="EmailAttachment" Type="webzyModel.Store.EmailAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmailAttachment">
+              <PropertyRef Name="IncomeEmailFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomingEmail_Tickets">
+          <End Role="Tickets" Type="webzyModel.Store.Tickets" Multiplicity="0..1" />
+          <End Role="Emails" Type="webzyModel.Store.Emails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tickets">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Emails">
+              <PropertyRef Name="TicketFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Status">
+          <End Role="Status" Type="webzyModel.Store.Status" Multiplicity="0..1" />
+          <End Role="Role" Type="webzyModel.Store.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleRight_Right">
+          <End Role="Right" Type="webzyModel.Store.Right" Multiplicity="0..1" />
+          <End Role="RoleRight" Type="webzyModel.Store.RoleRight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Right">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleRight">
+              <PropertyRef Name="RightFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleRight_Role">
+          <End Role="Role" Type="webzyModel.Store.Role" Multiplicity="0..1" />
+          <End Role="RoleRight" Type="webzyModel.Store.RoleRight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleRight">
+              <PropertyRef Name="RoleFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Country">
+          <End Role="Country" Type="webzyModel.Store.Country" Multiplicity="0..1" />
+          <End Role="Site" Type="webzyModel.Store.Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="CountryFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Customer">
+          <End Role="Customer" Type="webzyModel.Store.Customer" Multiplicity="1" />
+          <End Role="Site" Type="webzyModel.Store.Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="CustomerFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Status">
+          <End Role="Status" Type="webzyModel.Store.Status" Multiplicity="1" />
+          <End Role="Site" Type="webzyModel.Store.Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Group">
+          <End Role="Group" Type="webzyModel.Store.Group" Multiplicity="0..1" />
+          <End Role="Tickets" Type="webzyModel.Store.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="AssigntoGroupFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_ReportMethod">
+          <End Role="TicketReportMethod" Type="webzyModel.Store.TicketReportMethod" Multiplicity="1" />
+          <End Role="Tickets" Type="webzyModel.Store.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketReportMethod">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="ReportMethodFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketClassfication">
+          <End Role="TicketClassificationName" Type="webzyModel.Store.TicketClassificationName" Multiplicity="1" />
+          <End Role="Tickets" Type="webzyModel.Store.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketClassificationName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="TicketClassificationFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketPriority">
+          <End Role="TicketPriority" Type="webzyModel.Store.TicketPriority" Multiplicity="1" />
+          <End Role="Tickets" Type="webzyModel.Store.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketPriority">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="PriorityFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketResolution">
+          <End Role="TicketResolutionType" Type="webzyModel.Store.TicketResolutionType" Multiplicity="0..1" />
+          <End Role="Tickets" Type="webzyModel.Store.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketResolutionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="ResolutionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketStatus">
+          <End Role="TicketStatus" Type="webzyModel.Store.TicketStatus" Multiplicity="1" />
+          <End Role="Tickets" Type="webzyModel.Store.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="TicketStatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketType">
+          <End Role="TicketType" Type="webzyModel.Store.TicketType" Multiplicity="1" />
+          <End Role="Tickets" Type="webzyModel.Store.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="TicketTypeFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGroup_Group">
+          <End Role="Group" Type="webzyModel.Store.Group" Multiplicity="1" />
+          <End Role="UserGroup" Type="webzyModel.Store.UserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserGroup">
+              <PropertyRef Name="GroupFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserGroup_WebUser">
+          <End Role="WebUser" Type="webzyModel.Store.WebUser" Multiplicity="1" />
+          <End Role="UserGroup" Type="webzyModel.Store.UserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserGroup">
+              <PropertyRef Name="UserFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WebUser_Status">
+          <End Role="Status" Type="webzyModel.Store.Status" Multiplicity="1" />
+          <End Role="WebUser" Type="webzyModel.Store.WebUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WebUser">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WebUserRole_WebUser">
+          <End Role="WebUser" Type="webzyModel.Store.WebUser" Multiplicity="0..1" />
+          <End Role="WebUserRole" Type="webzyModel.Store.WebUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WebUserRole">
+              <PropertyRef Name="WebUserFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WebUserRole_WebUserRole">
+          <End Role="Role" Type="webzyModel.Store.Role" Multiplicity="0..1" />
+          <End Role="WebUserRole" Type="webzyModel.Store.WebUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WebUserRole">
+              <PropertyRef Name="RoleFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="webzyModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="webzyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Countries" EntityType="webzyModel.Country" />
+          <EntitySet Name="CountryLogs" EntityType="webzyModel.CountryLog" />
+          <EntitySet Name="Rights" EntityType="webzyModel.Right" />
+          <EntitySet Name="Roles" EntityType="webzyModel.Role" />
+          <EntitySet Name="RoleLogs" EntityType="webzyModel.RoleLog" />
+          <EntitySet Name="RoleRights" EntityType="webzyModel.RoleRight" />
+          <EntitySet Name="RoleRightLogs" EntityType="webzyModel.RoleRightLog" />
+          <EntitySet Name="Status" EntityType="webzyModel.Status" />
+          <EntitySet Name="WebUsers" EntityType="webzyModel.WebUser" />
+          <EntitySet Name="WebUserLogs" EntityType="webzyModel.WebUserLog" />
+          <EntitySet Name="WebUserRoles" EntityType="webzyModel.WebUserRole" />
+          <EntitySet Name="WebUserRoleLogs" EntityType="webzyModel.WebUserRoleLog" />
+          <AssociationSet Name="FK_RoleRight_Right" Association="webzyModel.FK_RoleRight_Right">
+            <End Role="Right" EntitySet="Rights" />
+            <End Role="RoleRight" EntitySet="RoleRights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Status" Association="webzyModel.FK_Role_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleRight_Role" Association="webzyModel.FK_RoleRight_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="RoleRight" EntitySet="RoleRights" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WebUserRole_WebUserRole" Association="webzyModel.FK_WebUserRole_WebUserRole">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="WebUserRole" EntitySet="WebUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WebUser_Status" Association="webzyModel.FK_WebUser_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="WebUser" EntitySet="WebUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WebUserRole_WebUser" Association="webzyModel.FK_WebUserRole_WebUser">
+            <End Role="WebUser" EntitySet="WebUsers" />
+            <End Role="WebUserRole" EntitySet="WebUserRoles" />
+          </AssociationSet>
+          <EntitySet Name="Groups" EntityType="webzyModel.Group" />
+          <EntitySet Name="UserGroups" EntityType="webzyModel.UserGroup" />
+          <EntitySet Name="GroupViews" EntityType="webzyModel.GroupView" />
+          <AssociationSet Name="FK_UserGroup_Group" Association="webzyModel.FK_UserGroup_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="UserGroup" EntitySet="UserGroups" />
+          </AssociationSet>
+          <EntitySet Name="GroupLogs" EntityType="webzyModel.GroupLog" />
+          <EntitySet Name="WebUserViews" EntityType="webzyModel.WebUserView" />
+          <AssociationSet Name="FK_UserGroup_WebUser" Association="webzyModel.FK_UserGroup_WebUser">
+            <End Role="WebUser" EntitySet="WebUsers" />
+            <End Role="UserGroup" EntitySet="UserGroups" />
+          </AssociationSet>
+          <EntitySet Name="UserGroupLogs" EntityType="webzyModel.UserGroupLog" />
+          <EntitySet Name="UserRightsViews" EntityType="webzyModel.UserRightsView" />
+          <EntitySet Name="ContactPersons" EntityType="webzyModel.ContactPerson" />
+          <EntitySet Name="ContactPersonLogs" EntityType="webzyModel.ContactPersonLog" />
+          <EntitySet Name="CustomerLogs" EntityType="webzyModel.CustomerLog" />
+          <EntitySet Name="EmailAttachments" EntityType="webzyModel.EmailAttachment" />
+          <EntitySet Name="Emails" EntityType="webzyModel.Email" />
+          <EntitySet Name="FileUploads" EntityType="webzyModel.FileUpload" />
+          <EntitySet Name="LDAPSettings" EntityType="webzyModel.LDAPSetting" />
+          <EntitySet Name="Sites" EntityType="webzyModel.Site" />
+          <EntitySet Name="SiteLogs" EntityType="webzyModel.SiteLog" />
+          <EntitySet Name="TicketClassificationNames" EntityType="webzyModel.TicketClassificationName" />
+          <EntitySet Name="TicketLogs" EntityType="webzyModel.TicketLog" />
+          <EntitySet Name="TicketPriorities" EntityType="webzyModel.TicketPriority" />
+          <EntitySet Name="TicketReportMethods" EntityType="webzyModel.TicketReportMethod" />
+          <EntitySet Name="TicketResolutionTypes" EntityType="webzyModel.TicketResolutionType" />
+          <EntitySet Name="Tickets" EntityType="webzyModel.Ticket" />
+          <EntitySet Name="TicketStatus" EntityType="webzyModel.TicketStatu" />
+          <EntitySet Name="TicketTypes" EntityType="webzyModel.TicketType" />
+          <AssociationSet Name="FK_ContactPerson_Status" Association="webzyModel.FK_ContactPerson_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="ContactPerson" EntitySet="ContactPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Country" Association="webzyModel.FK_Site_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Site" EntitySet="Sites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomingAttachment_IncomingEmail" Association="webzyModel.FK_IncomingAttachment_IncomingEmail">
+            <End Role="Email" EntitySet="Emails" />
+            <End Role="EmailAttachment" EntitySet="EmailAttachments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_IncomingEmail_Tickets" Association="webzyModel.FK_IncomingEmail_Tickets">
+            <End Role="Ticket" EntitySet="Tickets" />
+            <End Role="Email" EntitySet="Emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FileUpload_Ticket" Association="webzyModel.FK_FileUpload_Ticket">
+            <End Role="Ticket" EntitySet="Tickets" />
+            <End Role="FileUpload" EntitySet="FileUploads" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Group" Association="webzyModel.FK_Tickets_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Status" Association="webzyModel.FK_Site_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Site" EntitySet="Sites" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketClassfication" Association="webzyModel.FK_Tickets_TicketClassfication">
+            <End Role="TicketClassificationName" EntitySet="TicketClassificationNames" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketPriority" Association="webzyModel.FK_Tickets_TicketPriority">
+            <End Role="TicketPriority" EntitySet="TicketPriorities" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_ReportMethod" Association="webzyModel.FK_Tickets_ReportMethod">
+            <End Role="TicketReportMethod" EntitySet="TicketReportMethods" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketResolution" Association="webzyModel.FK_Tickets_TicketResolution">
+            <End Role="TicketResolutionType" EntitySet="TicketResolutionTypes" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketStatus" Association="webzyModel.FK_Tickets_TicketStatus">
+            <End Role="TicketStatu" EntitySet="TicketStatus" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_TicketType" Association="webzyModel.FK_Tickets_TicketType">
+            <End Role="TicketType" EntitySet="TicketTypes" />
+            <End Role="Ticket" EntitySet="Tickets" />
+          </AssociationSet>
+          <EntitySet Name="Customers" EntityType="webzyModel.Customer" />
+          <AssociationSet Name="FK_ContactPerson_Customer" Association="webzyModel.FK_ContactPerson_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="ContactPerson" EntitySet="ContactPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_Status" Association="webzyModel.FK_Customer_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customer_WebUser" Association="webzyModel.FK_Customer_WebUser">
+            <End Role="WebUser" EntitySet="WebUsers" />
+            <End Role="Customer" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Site_Customer" Association="webzyModel.FK_Site_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Site" EntitySet="Sites" />
+          </AssociationSet>
+          <EntitySet Name="CustomerViews" EntityType="webzyModel.CustomerView" />
+          <EntitySet Name="SiteViews" EntityType="webzyModel.SiteView" />
+        </EntityContainer>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CountryCode" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+          <NavigationProperty Name="Sites" Relationship="webzyModel.FK_Site_Country" FromRole="Country" ToRole="Site" />
+        </EntityType>
+        <EntityType Name="CountryLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CountryCode" Type="Int32" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Right">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+          <NavigationProperty Name="RoleRights" Relationship="webzyModel.FK_RoleRight_Right" FromRole="Right" ToRole="RoleRight" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="StatusFk" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+          <NavigationProperty Name="Status" Relationship="webzyModel.FK_Role_Status" FromRole="Role" ToRole="Status" />
+          <NavigationProperty Name="RoleRights" Relationship="webzyModel.FK_RoleRight_Role" FromRole="Role" ToRole="RoleRight" />
+          <NavigationProperty Name="WebUserRoles" Relationship="webzyModel.FK_WebUserRole_WebUserRole" FromRole="Role" ToRole="WebUserRole" />
+        </EntityType>
+        <EntityType Name="RoleLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Remark" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="RoleRight">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleFk" Type="Int32" />
+          <Property Name="RightFk" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifedOn" Type="DateTime" />
+          <NavigationProperty Name="Right" Relationship="webzyModel.FK_RoleRight_Right" FromRole="RoleRight" ToRole="Right" />
+          <NavigationProperty Name="Role" Relationship="webzyModel.FK_RoleRight_Role" FromRole="RoleRight" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="RoleRightLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="RightsName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Remark" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StatusName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+          <NavigationProperty Name="Roles" Relationship="webzyModel.FK_Role_Status" FromRole="Status" ToRole="Role" />
+          <NavigationProperty Name="WebUsers" Relationship="webzyModel.FK_WebUser_Status" FromRole="Status" ToRole="WebUser" />
+          <NavigationProperty Name="ContactPersons" Relationship="webzyModel.FK_ContactPerson_Status" FromRole="Status" ToRole="ContactPerson" />
+          <NavigationProperty Name="Sites" Relationship="webzyModel.FK_Site_Status" FromRole="Status" ToRole="Site" />
+          <NavigationProperty Name="Customers" Relationship="webzyModel.FK_Customer_Status" FromRole="Status" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="WebUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="LoginId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="StatusFk" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+          <NavigationProperty Name="Status" Relationship="webzyModel.FK_WebUser_Status" FromRole="WebUser" ToRole="Status" />
+          <NavigationProperty Name="WebUserRoles" Relationship="webzyModel.FK_WebUserRole_WebUser" FromRole="WebUser" ToRole="WebUserRole" />
+          <NavigationProperty Name="UserGroups" Relationship="webzyModel.FK_UserGroup_WebUser" FromRole="WebUser" ToRole="UserGroup" />
+          <NavigationProperty Name="Customers" Relationship="webzyModel.FK_Customer_WebUser" FromRole="WebUser" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="WebUserLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="LoginId" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="EmailAddress" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="ContactNumber" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Remark" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="WebUserRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WebUserFk" Type="Int32" />
+          <Property Name="RoleFk" Type="Int32" />
+          <Property Name="Remark" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+          <NavigationProperty Name="Role" Relationship="webzyModel.FK_WebUserRole_WebUserRole" FromRole="WebUserRole" ToRole="Role" />
+          <NavigationProperty Name="WebUser" Relationship="webzyModel.FK_WebUserRole_WebUser" FromRole="WebUserRole" ToRole="WebUser" />
+        </EntityType>
+        <EntityType Name="WebUserRoleLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WebUserName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="RoleName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Remark" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ModifiedOn" Type="DateTime" />
+        </EntityType>
+        <Association Name="FK_RoleRight_Right">
+          <End Role="Right" Type="webzyModel.Right" Multiplicity="0..1" />
+          <End Role="RoleRight" Type="webzyModel.RoleRight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Right">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleRight">
+              <PropertyRef Name="RightFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Status">
+          <End Role="Status" Type="webzyModel.Status" Multiplicity="0..1" />
+          <End Role="Role" Type="webzyModel.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleRight_Role">
+          <End Role="Role" Type="webzyModel.Role" Multiplicity="0..1" />
+          <End Role="RoleRight" Type="webzyModel.RoleRight" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RoleRight">
+              <PropertyRef Name="RoleFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WebUserRole_WebUserRole">
+          <End Role="Role" Type="webzyModel.Role" Multiplicity="0..1" />
+          <End Role="WebUserRole" Type="webzyModel.WebUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WebUserRole">
+              <PropertyRef Name="RoleFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WebUser_Status">
+          <End Role="Status" Type="webzyModel.Status" Multiplicity="1" />
+          <End Role="WebUser" Type="webzyModel.WebUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WebUser">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WebUserRole_WebUser">
+          <End Role="WebUser" Type="webzyModel.WebUser" Multiplicity="0..1" />
+          <End Role="WebUserRole" Type="webzyModel.WebUserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="WebUserRole">
+              <PropertyRef Name="WebUserFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="ViewAbleByCustomer" Nullable="false" />
+          <Property Type="String" Name="EmailAccount" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StatusFk" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+          <NavigationProperty Name="UserGroups" Relationship="webzyModel.FK_UserGroup_Group" FromRole="Group" ToRole="UserGroup" />
+          <NavigationProperty Name="Tickets" Relationship="webzyModel.FK_Tickets_Group" FromRole="Group" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="UserGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="UserFk" Nullable="false" />
+          <Property Type="Int32" Name="GroupFk" Nullable="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+          <NavigationProperty Name="Group" Relationship="webzyModel.FK_UserGroup_Group" FromRole="UserGroup" ToRole="Group" />
+          <NavigationProperty Name="WebUser" Relationship="webzyModel.FK_UserGroup_WebUser" FromRole="UserGroup" ToRole="WebUser" />
+        </EntityType>
+        <EntityType Name="GroupView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="GroupName" />
+            <PropertyRef Name="ViewAbleByCustomer" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="ViewAbleByCustomer" Nullable="false" />
+          <Property Type="String" Name="EmailAccount" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_UserGroup_Group">
+          <End Type="webzyModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="webzyModel.UserGroup" Role="UserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserGroup">
+              <PropertyRef Name="GroupFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="GroupLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="ViewAbleByCustomer" Nullable="false" />
+          <Property Type="String" Name="EmailAccount" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+        </EntityType>
+        <EntityType Name="WebUserView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="LoginId" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LoginId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContactNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RoleName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="GroupName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_UserGroup_WebUser">
+          <End Type="webzyModel.WebUser" Role="WebUser" Multiplicity="1" />
+          <End Type="webzyModel.UserGroup" Role="UserGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserGroup">
+              <PropertyRef Name="UserFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="UserGroupLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="GroupName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+        </EntityType>
+        <EntityType Name="UserRightsView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Role" />
+            <PropertyRef Name="Rights" />
+            <PropertyRef Name="LoginId" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Role" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Rights" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Priority" />
+          <Property Type="String" Name="LoginId" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ContactPerson">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CustomerFk" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HPNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OfficeNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailAddress" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StatusFk" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+          <NavigationProperty Name="Status" Relationship="webzyModel.FK_ContactPerson_Status" FromRole="ContactPerson" ToRole="Status" />
+          <NavigationProperty Name="Customer" Relationship="webzyModel.FK_ContactPerson_Customer" FromRole="ContactPerson" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="ContactPersonLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CustomerName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HPNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OfficeNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailAddress" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+        </EntityType>
+        <EntityType Name="CustomerLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CreatedBy" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+        </EntityType>
+        <EntityType Name="EmailAttachment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IncomeEmailFk" />
+          <Property Type="String" Name="FileName" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FileLocation" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+          <NavigationProperty Name="Email" Relationship="webzyModel.FK_IncomingAttachment_IncomingEmail" FromRole="EmailAttachment" ToRole="Email" />
+        </EntityType>
+        <EntityType Name="Email">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TicketFk" />
+          <Property Type="String" Name="TicketNo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="UID" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ReceivedTime" Nullable="false" />
+          <Property Type="String" Name="ToAddress" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="FromAddress" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CCAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Subject" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailContent" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailLocation" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="Attachment" Nullable="false" />
+          <Property Type="Boolean" Name="Ignore" />
+          <Property Type="String" Name="Remark" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+          <NavigationProperty Name="EmailAttachments" Relationship="webzyModel.FK_IncomingAttachment_IncomingEmail" FromRole="Email" ToRole="EmailAttachment" />
+          <NavigationProperty Name="Ticket" Relationship="webzyModel.FK_IncomingEmail_Tickets" FromRole="Email" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="FileUpload">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TicketFk" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Path" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remarks" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+          <NavigationProperty Name="Ticket" Relationship="webzyModel.FK_FileUpload_Ticket" FromRole="FileUpload" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="LDAPSetting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DomainName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LDAPAddress" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifyBy" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifyOn" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CustomerFk" Nullable="false" />
+          <Property Type="Int32" Name="CountryFk" />
+          <Property Type="String" Name="SiteName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StatusFk" Nullable="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="webzyModel.FK_Site_Country" FromRole="Site" ToRole="Country" />
+          <NavigationProperty Name="Status" Relationship="webzyModel.FK_Site_Status" FromRole="Site" ToRole="Status" />
+          <NavigationProperty Name="Customer" Relationship="webzyModel.FK_Site_Customer" FromRole="Site" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="SiteLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="CustomerName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Country" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SiteName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+        </EntityType>
+        <EntityType Name="TicketClassificationName">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ClassificationName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+          <NavigationProperty Name="Tickets" Relationship="webzyModel.FK_Tickets_TicketClassfication" FromRole="TicketClassificationName" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="TicketLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TicketNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TicketOwner" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="NotifyOwner" Nullable="false" />
+          <Property Type="Int32" Name="AssignTosUer" />
+          <Property Type="Int32" Name="AssignTosGroup" />
+          <Property Type="String" Name="TicketType" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Priority" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ReportMethod" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="FileUpload" Nullable="false" />
+          <Property Type="String" Name="Customer" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContactPerson" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="NotifyContact" Nullable="false" />
+          <Property Type="String" Name="ContactNo" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContactEmail" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SiteName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SiteAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TicketDetails" Nullable="false" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="TicketStatus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="OnSite" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="Duration" Nullable="false" />
+          <Property Type="String" Name="Resolution" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Subscribers" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField1" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField2" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField3" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField4" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField5" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="RecordingId" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CreatedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketPriority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="PriorityName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="SLA" Nullable="false" Precision="4" Scale="1" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+          <NavigationProperty Name="Tickets" Relationship="webzyModel.FK_Tickets_TicketPriority" FromRole="TicketPriority" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="TicketReportMethod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MethodName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+          <NavigationProperty Name="Tickets" Relationship="webzyModel.FK_Tickets_ReportMethod" FromRole="TicketReportMethod" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="TicketResolutionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ResolutionTypeName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+          <NavigationProperty Name="Tickets" Relationship="webzyModel.FK_Tickets_TicketResolution" FromRole="TicketResolutionType" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TicketNo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ReceivedTime" Nullable="false" />
+          <Property Type="DateTime" Name="ResponseTime" />
+          <Property Type="Int32" Name="TicketOwnerFk" Nullable="false" />
+          <Property Type="Boolean" Name="NotifyOwner" Nullable="false" />
+          <Property Type="Int32" Name="AssignTosUerFk" />
+          <Property Type="Int32" Name="AssigntoGroupFk" />
+          <Property Type="Int32" Name="TicketTypeFk" Nullable="false" />
+          <Property Type="Int32" Name="PriorityFk" Nullable="false" />
+          <Property Type="Int32" Name="TicketClassificationFk" Nullable="false" />
+          <Property Type="Int32" Name="ReportMethodFk" Nullable="false" />
+          <Property Type="String" Name="ContactPerson" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContactNo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContactEmail" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="NotifyCustomer" Nullable="false" />
+          <Property Type="String" Name="SiteName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SiteAddress" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CustomerFk" />
+          <Property Type="String" Name="TicketDetails" Nullable="false" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="TicketStatusFk" Nullable="false" />
+          <Property Type="Int32" Name="ResolutionFk" />
+          <Property Type="String" Name="Resolution" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="FileUpload" Nullable="false" />
+          <Property Type="Boolean" Name="OnSite" Nullable="false" />
+          <Property Type="Boolean" Name="TicketClosed" Nullable="false" />
+          <Property Type="Int32" Name="KIVDuration" />
+          <Property Type="Int32" Name="TicketDuration" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Escalation" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Subscribers" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField1" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField2" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField3" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField4" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionField5" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CreatedByFk" Nullable="false" />
+          <Property Type="String" Name="Remark" MaxLength="8000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+          <NavigationProperty Name="Emails" Relationship="webzyModel.FK_IncomingEmail_Tickets" FromRole="Ticket" ToRole="Email" />
+          <NavigationProperty Name="FileUploads" Relationship="webzyModel.FK_FileUpload_Ticket" FromRole="Ticket" ToRole="FileUpload" />
+          <NavigationProperty Name="Group" Relationship="webzyModel.FK_Tickets_Group" FromRole="Ticket" ToRole="Group" />
+          <NavigationProperty Name="TicketClassificationName" Relationship="webzyModel.FK_Tickets_TicketClassfication" FromRole="Ticket" ToRole="TicketClassificationName" />
+          <NavigationProperty Name="TicketPriority" Relationship="webzyModel.FK_Tickets_TicketPriority" FromRole="Ticket" ToRole="TicketPriority" />
+          <NavigationProperty Name="TicketReportMethod" Relationship="webzyModel.FK_Tickets_ReportMethod" FromRole="Ticket" ToRole="TicketReportMethod" />
+          <NavigationProperty Name="TicketResolutionType" Relationship="webzyModel.FK_Tickets_TicketResolution" FromRole="Ticket" ToRole="TicketResolutionType" />
+          <NavigationProperty Name="TicketStatu" Relationship="webzyModel.FK_Tickets_TicketStatus" FromRole="Ticket" ToRole="TicketStatu" />
+          <NavigationProperty Name="TicketType" Relationship="webzyModel.FK_Tickets_TicketType" FromRole="Ticket" ToRole="TicketType" />
+        </EntityType>
+        <EntityType Name="TicketStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+          <NavigationProperty Name="Tickets" Relationship="webzyModel.FK_Tickets_TicketStatus" FromRole="TicketStatu" ToRole="Ticket" />
+        </EntityType>
+        <EntityType Name="TicketType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" />
+          <NavigationProperty Name="Tickets" Relationship="webzyModel.FK_Tickets_TicketType" FromRole="TicketType" ToRole="Ticket" />
+        </EntityType>
+        <Association Name="FK_ContactPerson_Status">
+          <End Type="webzyModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="webzyModel.ContactPerson" Role="ContactPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactPerson">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Country">
+          <End Type="webzyModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="webzyModel.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="CountryFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomingAttachment_IncomingEmail">
+          <End Type="webzyModel.Email" Role="Email" Multiplicity="0..1" />
+          <End Type="webzyModel.EmailAttachment" Role="EmailAttachment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Email">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmailAttachment">
+              <PropertyRef Name="IncomeEmailFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_IncomingEmail_Tickets">
+          <End Type="webzyModel.Ticket" Role="Ticket" Multiplicity="0..1" />
+          <End Type="webzyModel.Email" Role="Email" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Email">
+              <PropertyRef Name="TicketFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FileUpload_Ticket">
+          <End Type="webzyModel.Ticket" Role="Ticket" Multiplicity="1" />
+          <End Type="webzyModel.FileUpload" Role="FileUpload" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ticket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FileUpload">
+              <PropertyRef Name="TicketFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Group">
+          <End Type="webzyModel.Group" Role="Group" Multiplicity="0..1" />
+          <End Type="webzyModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="AssigntoGroupFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Status">
+          <End Type="webzyModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="webzyModel.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketClassfication">
+          <End Type="webzyModel.TicketClassificationName" Role="TicketClassificationName" Multiplicity="1" />
+          <End Type="webzyModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketClassificationName">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="TicketClassificationFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketPriority">
+          <End Type="webzyModel.TicketPriority" Role="TicketPriority" Multiplicity="1" />
+          <End Type="webzyModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketPriority">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="PriorityFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_ReportMethod">
+          <End Type="webzyModel.TicketReportMethod" Role="TicketReportMethod" Multiplicity="1" />
+          <End Type="webzyModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketReportMethod">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="ReportMethodFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketResolution">
+          <End Type="webzyModel.TicketResolutionType" Role="TicketResolutionType" Multiplicity="0..1" />
+          <End Type="webzyModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketResolutionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="ResolutionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketStatus">
+          <End Type="webzyModel.TicketStatu" Role="TicketStatu" Multiplicity="1" />
+          <End Type="webzyModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketStatu">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="TicketStatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_TicketType">
+          <End Type="webzyModel.TicketType" Role="TicketType" Multiplicity="1" />
+          <End Type="webzyModel.Ticket" Role="Ticket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TicketType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Ticket">
+              <PropertyRef Name="TicketTypeFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StatusFk" />
+          <Property Type="Int32" Name="CreatedByFk" Nullable="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+          <NavigationProperty Name="ContactPersons" Relationship="webzyModel.FK_ContactPerson_Customer" FromRole="Customer" ToRole="ContactPerson" />
+          <NavigationProperty Name="Status" Relationship="webzyModel.FK_Customer_Status" FromRole="Customer" ToRole="Status" />
+          <NavigationProperty Name="WebUser" Relationship="webzyModel.FK_Customer_WebUser" FromRole="Customer" ToRole="WebUser" />
+          <NavigationProperty Name="Sites" Relationship="webzyModel.FK_Site_Customer" FromRole="Customer" ToRole="Site" />
+        </EntityType>
+        <Association Name="FK_ContactPerson_Customer">
+          <End Type="webzyModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="webzyModel.ContactPerson" Role="ContactPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ContactPerson">
+              <PropertyRef Name="CustomerFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_Status">
+          <End Type="webzyModel.Status" Role="Status" Multiplicity="0..1" />
+          <End Type="webzyModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customer_WebUser">
+          <End Type="webzyModel.WebUser" Role="WebUser" Multiplicity="1" />
+          <End Type="webzyModel.Customer" Role="Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="WebUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="CreatedByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Customer">
+          <End Type="webzyModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="webzyModel.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="CustomerFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CustomerView">
+          <Key>
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="CustomerId" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="ModifiedBy" />
+            <PropertyRef Name="ModifiedOn" />
+            <PropertyRef Name="CustomerStatus" />
+          </Key>
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CustomerStatusId" />
+          <Property Type="Int32" Name="CustomerId" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+          <Property Type="String" Name="CustomerStatus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SiteView">
+          <Key>
+            <PropertyRef Name="SiteId" />
+            <PropertyRef Name="SiteName" />
+            <PropertyRef Name="SiteAddress" />
+            <PropertyRef Name="SiteStatusId" />
+            <PropertyRef Name="SiteStatus" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="Country" />
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Type="Int32" Name="SiteId" Nullable="false" />
+          <Property Type="String" Name="SiteName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SiteAddress" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SiteStatusId" Nullable="false" />
+          <Property Type="String" Name="SiteStatus" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CountryFk" />
+          <Property Type="Int32" Name="CustomerId" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="webzyModelStoreContainer" CdmEntityContainer="webzyEntities">
+          <EntitySetMapping Name="Countries"><EntityTypeMapping TypeName="webzyModel.Country"><MappingFragment StoreEntitySet="Country">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+            <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="CountryLogs"><EntityTypeMapping TypeName="webzyModel.CountryLog"><MappingFragment StoreEntitySet="CountryLog">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+            <ScalarProperty Name="CountryCode" ColumnName="CountryCode" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Rights"><EntityTypeMapping TypeName="webzyModel.Right"><MappingFragment StoreEntitySet="Right">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Priority" ColumnName="Priority" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Roles"><EntityTypeMapping TypeName="webzyModel.Role"><MappingFragment StoreEntitySet="Role">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RoleLogs"><EntityTypeMapping TypeName="webzyModel.RoleLog"><MappingFragment StoreEntitySet="RoleLog">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RoleRights"><EntityTypeMapping TypeName="webzyModel.RoleRight"><MappingFragment StoreEntitySet="RoleRight">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="RoleFk" ColumnName="RoleFk" />
+            <ScalarProperty Name="RightFk" ColumnName="RightFk" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifedOn" ColumnName="ModifedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="RoleRightLogs"><EntityTypeMapping TypeName="webzyModel.RoleRightLog"><MappingFragment StoreEntitySet="RoleRightLog">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+            <ScalarProperty Name="RightsName" ColumnName="RightsName" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Status"><EntityTypeMapping TypeName="webzyModel.Status"><MappingFragment StoreEntitySet="Status">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="WebUsers"><EntityTypeMapping TypeName="webzyModel.WebUser"><MappingFragment StoreEntitySet="WebUser">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+            <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+            <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="WebUserLogs"><EntityTypeMapping TypeName="webzyModel.WebUserLog"><MappingFragment StoreEntitySet="WebUserLog">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+            <ScalarProperty Name="Password" ColumnName="Password" />
+            <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+            <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="WebUserRoles"><EntityTypeMapping TypeName="webzyModel.WebUserRole"><MappingFragment StoreEntitySet="WebUserRole">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="WebUserFk" ColumnName="WebUserFk" />
+            <ScalarProperty Name="RoleFk" ColumnName="RoleFk" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="WebUserRoleLogs"><EntityTypeMapping TypeName="webzyModel.WebUserRoleLog"><MappingFragment StoreEntitySet="WebUserRoleLog">
+            <ScalarProperty Name="Id" ColumnName="Id" />
+            <ScalarProperty Name="WebUserName" ColumnName="WebUserName" />
+            <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+            <ScalarProperty Name="Remark" ColumnName="Remark" />
+            <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+            <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="webzyModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
+                <ScalarProperty Name="EmailAccount" ColumnName="EmailAccount" />
+                <ScalarProperty Name="ViewAbleByCustomer" ColumnName="ViewAbleByCustomer" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroups">
+            <EntityTypeMapping TypeName="webzyModel.UserGroup">
+              <MappingFragment StoreEntitySet="UserGroup">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="GroupFk" ColumnName="GroupFk" />
+                <ScalarProperty Name="UserFk" ColumnName="UserFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupViews">
+            <EntityTypeMapping TypeName="webzyModel.GroupView">
+              <MappingFragment StoreEntitySet="GroupView">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EmailAccount" ColumnName="EmailAccount" />
+                <ScalarProperty Name="ViewAbleByCustomer" ColumnName="ViewAbleByCustomer" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GroupLogs">
+            <EntityTypeMapping TypeName="webzyModel.GroupLog">
+              <MappingFragment StoreEntitySet="GroupLog">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EmailAccount" ColumnName="EmailAccount" />
+                <ScalarProperty Name="ViewAbleByCustomer" ColumnName="ViewAbleByCustomer" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WebUserViews">
+            <EntityTypeMapping TypeName="webzyModel.WebUserView">
+              <MappingFragment StoreEntitySet="WebUserView">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroupLogs">
+            <EntityTypeMapping TypeName="webzyModel.UserGroupLog">
+              <MappingFragment StoreEntitySet="UserGroupLog">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRightsViews">
+            <EntityTypeMapping TypeName="webzyModel.UserRightsView">
+              <MappingFragment StoreEntitySet="UserRightsView">
+                <ScalarProperty Name="LoginId" ColumnName="LoginId" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="Rights" ColumnName="Rights" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactPersons">
+            <EntityTypeMapping TypeName="webzyModel.ContactPerson">
+              <MappingFragment StoreEntitySet="ContactPerson">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="OfficeNumber" ColumnName="OfficeNumber" />
+                <ScalarProperty Name="HPNumber" ColumnName="HPNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerFk" ColumnName="CustomerFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactPersonLogs">
+            <EntityTypeMapping TypeName="webzyModel.ContactPersonLog">
+              <MappingFragment StoreEntitySet="ContactPersonLog">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="OfficeNumber" ColumnName="OfficeNumber" />
+                <ScalarProperty Name="HPNumber" ColumnName="HPNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerLogs">
+            <EntityTypeMapping TypeName="webzyModel.CustomerLog">
+              <MappingFragment StoreEntitySet="CustomerLog">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailAttachments">
+            <EntityTypeMapping TypeName="webzyModel.EmailAttachment">
+              <MappingFragment StoreEntitySet="EmailAttachment">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="FileLocation" ColumnName="FileLocation" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="IncomeEmailFk" ColumnName="IncomeEmailFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emails">
+            <EntityTypeMapping TypeName="webzyModel.Email">
+              <MappingFragment StoreEntitySet="Emails">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Ignore" ColumnName="Ignore" />
+                <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+                <ScalarProperty Name="EmailLocation" ColumnName="EmailLocation" />
+                <ScalarProperty Name="EmailContent" ColumnName="EmailContent" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="CCAddress" ColumnName="CCAddress" />
+                <ScalarProperty Name="FromAddress" ColumnName="FromAddress" />
+                <ScalarProperty Name="ToAddress" ColumnName="ToAddress" />
+                <ScalarProperty Name="ReceivedTime" ColumnName="ReceivedTime" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="TicketFk" ColumnName="TicketFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileUploads">
+            <EntityTypeMapping TypeName="webzyModel.FileUpload">
+              <MappingFragment StoreEntitySet="FileUpload">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TicketFk" ColumnName="TicketFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LDAPSettings">
+            <EntityTypeMapping TypeName="webzyModel.LDAPSetting">
+              <MappingFragment StoreEntitySet="LDAPSetting">
+                <ScalarProperty Name="ModifyOn" ColumnName="ModifyOn" />
+                <ScalarProperty Name="ModifyBy" ColumnName="ModifyBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="LDAPAddress" ColumnName="LDAPAddress" />
+                <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="webzyModel.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="CountryFk" ColumnName="CountryFk" />
+                <ScalarProperty Name="CustomerFk" ColumnName="CustomerFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteLogs">
+            <EntityTypeMapping TypeName="webzyModel.SiteLog">
+              <MappingFragment StoreEntitySet="SiteLog">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketClassificationNames">
+            <EntityTypeMapping TypeName="webzyModel.TicketClassificationName">
+              <MappingFragment StoreEntitySet="TicketClassificationName">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ClassificationName" ColumnName="ClassificationName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketLogs">
+            <EntityTypeMapping TypeName="webzyModel.TicketLog">
+              <MappingFragment StoreEntitySet="TicketLog">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="RecordingId" ColumnName="RecordingId" />
+                <ScalarProperty Name="AdditionField5" ColumnName="AdditionField5" />
+                <ScalarProperty Name="AdditionField4" ColumnName="AdditionField4" />
+                <ScalarProperty Name="AdditionField3" ColumnName="AdditionField3" />
+                <ScalarProperty Name="AdditionField2" ColumnName="AdditionField2" />
+                <ScalarProperty Name="AdditionField1" ColumnName="AdditionField1" />
+                <ScalarProperty Name="Subscribers" ColumnName="Subscribers" />
+                <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="OnSite" ColumnName="OnSite" />
+                <ScalarProperty Name="TicketStatus" ColumnName="TicketStatus" />
+                <ScalarProperty Name="TicketDetails" ColumnName="TicketDetails" />
+                <ScalarProperty Name="SiteAddress" ColumnName="SiteAddress" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="NotifyContact" ColumnName="NotifyContact" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="FileUpload" ColumnName="FileUpload" />
+                <ScalarProperty Name="ReportMethod" ColumnName="ReportMethod" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="TicketType" ColumnName="TicketType" />
+                <ScalarProperty Name="AssignTosGroup" ColumnName="AssignTosGroup" />
+                <ScalarProperty Name="AssignTosUer" ColumnName="AssignTosUer" />
+                <ScalarProperty Name="NotifyOwner" ColumnName="NotifyOwner" />
+                <ScalarProperty Name="TicketOwner" ColumnName="TicketOwner" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketPriorities">
+            <EntityTypeMapping TypeName="webzyModel.TicketPriority">
+              <MappingFragment StoreEntitySet="TicketPriority">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="SLA" ColumnName="SLA" />
+                <ScalarProperty Name="PriorityName" ColumnName="PriorityName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketReportMethods">
+            <EntityTypeMapping TypeName="webzyModel.TicketReportMethod">
+              <MappingFragment StoreEntitySet="TicketReportMethod">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="MethodName" ColumnName="MethodName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketResolutionTypes">
+            <EntityTypeMapping TypeName="webzyModel.TicketResolutionType">
+              <MappingFragment StoreEntitySet="TicketResolutionType">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="ResolutionTypeName" ColumnName="ResolutionTypeName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="webzyModel.Ticket">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CreatedByFk" ColumnName="CreatedByFk" />
+                <ScalarProperty Name="AdditionField5" ColumnName="AdditionField5" />
+                <ScalarProperty Name="AdditionField4" ColumnName="AdditionField4" />
+                <ScalarProperty Name="AdditionField3" ColumnName="AdditionField3" />
+                <ScalarProperty Name="AdditionField2" ColumnName="AdditionField2" />
+                <ScalarProperty Name="AdditionField1" ColumnName="AdditionField1" />
+                <ScalarProperty Name="Subscribers" ColumnName="Subscribers" />
+                <ScalarProperty Name="Escalation" ColumnName="Escalation" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="TicketDuration" ColumnName="TicketDuration" />
+                <ScalarProperty Name="KIVDuration" ColumnName="KIVDuration" />
+                <ScalarProperty Name="TicketClosed" ColumnName="TicketClosed" />
+                <ScalarProperty Name="OnSite" ColumnName="OnSite" />
+                <ScalarProperty Name="FileUpload" ColumnName="FileUpload" />
+                <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+                <ScalarProperty Name="ResolutionFk" ColumnName="ResolutionFk" />
+                <ScalarProperty Name="TicketStatusFk" ColumnName="TicketStatusFk" />
+                <ScalarProperty Name="TicketDetails" ColumnName="TicketDetails" />
+                <ScalarProperty Name="CustomerFk" ColumnName="CustomerFk" />
+                <ScalarProperty Name="SiteAddress" ColumnName="SiteAddress" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="NotifyCustomer" ColumnName="NotifyCustomer" />
+                <ScalarProperty Name="ContactEmail" ColumnName="ContactEmail" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="ContactPerson" ColumnName="ContactPerson" />
+                <ScalarProperty Name="ReportMethodFk" ColumnName="ReportMethodFk" />
+                <ScalarProperty Name="TicketClassificationFk" ColumnName="TicketClassificationFk" />
+                <ScalarProperty Name="PriorityFk" ColumnName="PriorityFk" />
+                <ScalarProperty Name="TicketTypeFk" ColumnName="TicketTypeFk" />
+                <ScalarProperty Name="AssigntoGroupFk" ColumnName="AssigntoGroupFk" />
+                <ScalarProperty Name="AssignTosUerFk" ColumnName="AssignTosUerFk" />
+                <ScalarProperty Name="NotifyOwner" ColumnName="NotifyOwner" />
+                <ScalarProperty Name="TicketOwnerFk" ColumnName="TicketOwnerFk" />
+                <ScalarProperty Name="ResponseTime" ColumnName="ResponseTime" />
+                <ScalarProperty Name="ReceivedTime" ColumnName="ReceivedTime" />
+                <ScalarProperty Name="TicketNo" ColumnName="TicketNo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketStatus">
+            <EntityTypeMapping TypeName="webzyModel.TicketStatu">
+              <MappingFragment StoreEntitySet="TicketStatus">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketTypes">
+            <EntityTypeMapping TypeName="webzyModel.TicketType">
+              <MappingFragment StoreEntitySet="TicketType">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="webzyModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedByFk" ColumnName="CreatedByFk" />
+                <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerViews">
+            <EntityTypeMapping TypeName="webzyModel.CustomerView">
+              <MappingFragment StoreEntitySet="CustomerView">
+                <ScalarProperty Name="CustomerStatus" ColumnName="CustomerStatus" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CustomerStatusId" ColumnName="CustomerStatusId" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteViews">
+            <EntityTypeMapping TypeName="webzyModel.SiteView">
+              <MappingFragment StoreEntitySet="SiteView">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CountryFk" ColumnName="CountryFk" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="SiteStatus" ColumnName="SiteStatus" />
+                <ScalarProperty Name="SiteStatusId" ColumnName="SiteStatusId" />
+                <ScalarProperty Name="SiteAddress" ColumnName="SiteAddress" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="webzyDataEntities">
+        <EntityTypeShape EntityType="webzyModel.Country" Width="1.5" PointX="7.75" PointY="2.375" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.CountryLog" Width="1.5" PointX="7.75" PointY="5.375" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.Right" Width="1.5" PointX="3" PointY="0.75" Height="2.3648893229166656" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.Role" Width="1.5" PointX="3" PointY="4.5" Height="2.9417936197916656" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.RoleLog" Width="1.5" PointX="7.75" PointY="8.375" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.RoleRight" Width="1.5" PointX="5.25" PointY="4.625" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.RoleRightLog" Width="1.5" PointX="9.75" PointY="2.375" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.Status" Width="1.5" PointX="0.75" PointY="6.75" Height="2.3648893229166665" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.WebUser" Width="1.5" PointX="3" PointY="8.125" Height="3.3263964843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.WebUserLog" Width="1.5" PointX="9.75" PointY="5.375" Height="2.9417936197916665" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.WebUserRole" Width="1.5" PointX="5.25" PointY="8.75" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="webzyModel.WebUserRoleLog" Width="1.5" PointX="9.75" PointY="9.375" Height="2.1725878906250031" IsExpanded="true" />
+        <AssociationConnector Association="webzyModel.FK_RoleRight_Right" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="3.1148893229166656" />
+          <ConnectorPoint PointX="4.875" PointY="3.4898893229166656" />
+          <ConnectorPoint PointX="4.875" PointY="5.9035953776041659" />
+          <ConnectorPoint PointX="5.25" PointY="5.9035953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Role_Status" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="7.0958968098958328" />
+          <ConnectorPoint PointX="3" PointY="7.0958968098958328" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_RoleRight_Role" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.9035953776041659" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="5.903595377604165" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="5.9035953776041659" />
+          <ConnectorPoint PointX="5.25" PointY="5.9035953776041659" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_WebUserRole_WebUserRole" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="7.4417936197916656" />
+          <ConnectorPoint PointX="4.875" PointY="7.8167936197916656" />
+          <ConnectorPoint PointX="4.875" PointY="10.428158933105468" />
+          <ConnectorPoint PointX="5.25" PointY="10.428158933105468" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_WebUser_Status" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="8.9083968098958337" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="8.9083968098958337" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="8.9083968098958337" />
+          <ConnectorPoint PointX="3" PointY="8.9083968098958337" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_WebUserRole_WebUser" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="9.5265794665527341" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="9.5265794665527341" />
+          <ConnectorPoint PointX="4.958333333333333" PointY="9.5265794665527341" />
+          <ConnectorPoint PointX="5.25" PointY="9.5265794665527341" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="webzyModel.Group" Width="1.5" PointX="12.375" PointY="4" Height="2.7494921875000031" />
+        <EntityTypeShape EntityType="webzyModel.UserGroup" Width="1.5" PointX="14.625" PointY="4.125" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="webzyModel.GroupView" Width="1.5" PointX="5.375" PointY="12.75" Height="1.9802864583333388" />
+        <AssociationConnector Association="webzyModel.FK_UserGroup_Group" >
+          <ConnectorPoint PointX="13.875" PointY="5.4035953776041659" />
+          <ConnectorPoint PointX="14.625" PointY="5.4035953776041659" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="webzyModel.GroupLog" Width="1.5" PointX="12.375" PointY="7.75" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="webzyModel.WebUserView" Width="1.5" PointX="7.375" PointY="12.75" Height="2.7494921875000031" />
+        <AssociationConnector Association="webzyModel.FK_UserGroup_WebUser" >
+          <ConnectorPoint PointX="4.5" PointY="11.66321608723959" />
+          <ConnectorPoint PointX="11.697919166666667" PointY="11.66321608723959" />
+          <ConnectorPoint PointX="11.864585833333335" PointY="11.66321608723959" />
+          <ConnectorPoint PointX="14.057288916666666" PointY="11.66321608723959" />
+          <ConnectorPoint PointX="14.223955583333334" PointY="11.66321608723959" />
+          <ConnectorPoint PointX="14.322916166666667" PointY="11.66321608723959" />
+          <ConnectorPoint PointX="14.489582833333335" PointY="11.66321608723959" />
+          <ConnectorPoint PointX="15.15625" PointY="11.66321608723959" />
+          <ConnectorPoint PointX="15.15625" PointY="6.6821907552083326" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="webzyModel.UserGroupLog" Width="1.5" PointX="12.375" PointY="0.75" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="webzyModel.UserRightsView" Width="1.5" PointX="0.75" PointY="12.75" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="webzyModel.ContactPerson" Width="1.5" PointX="10.625" PointY="13.125" Height="3.326396484374996" />
+        <EntityTypeShape EntityType="webzyModel.ContactPersonLog" Width="1.5" PointX="12.75" PointY="16.25" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="webzyModel.CustomerLog" Width="1.5" PointX="14.75" PointY="1.25" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="webzyModel.EmailAttachment" Width="1.5" PointX="22.5" PointY="3.125" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="webzyModel.Email" Width="1.5" PointX="20.25" PointY="2.125" Height="4.48020507812501" />
+        <EntityTypeShape EntityType="webzyModel.FileUpload" Width="1.5" PointX="20.25" PointY="7.25" Height="2.5571907552083237" />
+        <EntityTypeShape EntityType="webzyModel.LDAPSetting" Width="1.5" PointX="0.75" PointY="17.25" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="webzyModel.Site" Width="1.5" PointX="13.375" PointY="11.875" Height="3.3263964843750102" />
+        <EntityTypeShape EntityType="webzyModel.SiteLog" Width="1.5" PointX="2.75" PointY="17.25" Height="2.7494921875000102" />
+        <EntityTypeShape EntityType="webzyModel.TicketClassificationName" Width="1.5" PointX="15.75" PointY="8.875" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="webzyModel.TicketLog" Width="1.5" PointX="4.75" PointY="17.25" Height="7.5570279947916674" />
+        <EntityTypeShape EntityType="webzyModel.TicketPriority" Width="1.5" PointX="15.75" PointY="11.875" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="webzyModel.TicketReportMethod" Width="1.5" PointX="15.75" PointY="14.875" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="webzyModel.TicketResolutionType" Width="1.5" PointX="15.75" PointY="17.875" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="webzyModel.Ticket" Width="1.5" PointX="18" PointY="0.75" Height="10.441549479166667" />
+        <EntityTypeShape EntityType="webzyModel.TicketStatu" Width="1.5" PointX="15.75" PointY="20.75" Height="2.172587890624996" />
+        <EntityTypeShape EntityType="webzyModel.TicketType" Width="1.5" PointX="15.75" PointY="23.75" Height="2.172587890624996" />
+        <AssociationConnector Association="webzyModel.FK_ContactPerson_Status" >
+          <ConnectorPoint PointX="2.25" PointY="8.0021468098958337" />
+          <ConnectorPoint PointX="2.75" PointY="8.0021468098958337" />
+          <ConnectorPoint PointX="2.75" PointY="12.085999348958332" />
+          <ConnectorPoint PointX="11.375" PointY="12.085999348958332" />
+          <ConnectorPoint PointX="11.375" PointY="13.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Site_Country" >
+          <ConnectorPoint PointX="9.25" PointY="3.4612939453125" />
+          <ConnectorPoint PointX="9.5" PointY="3.4612939453125" />
+          <ConnectorPoint PointX="9.5" PointY="4.797587890625" />
+          <ConnectorPoint PointX="11.697919166666667" PointY="4.7975878906249987" />
+          <ConnectorPoint PointX="11.864585833333335" PointY="4.797587890625" />
+          <ConnectorPoint PointX="12.125" PointY="4.797587890625" />
+          <ConnectorPoint PointX="12.125" PointY="7.1917936197916656" />
+          <ConnectorPoint PointX="14.406249500000001" PointY="7.1917936197916656" />
+          <ConnectorPoint PointX="14.406249500000001" PointY="11.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_IncomingAttachment_IncomingEmail" >
+          <ConnectorPoint PointX="21.75" PointY="4.3074446614583337" />
+          <ConnectorPoint PointX="22.5" PointY="4.3074446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_IncomingEmail_Tickets" >
+          <ConnectorPoint PointX="19.5" PointY="4.3651025390625051" />
+          <ConnectorPoint PointX="20.25" PointY="4.3651025390625051" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_FileUpload_Ticket" >
+          <ConnectorPoint PointX="19.5" PointY="8.5285953776041623" />
+          <ConnectorPoint PointX="20.25" PointY="8.5285953776041623" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Tickets_Group" ManuallyRouted="true" >
+          <ConnectorPoint PointX="13.875" PointY="6.9417936197916656" />
+          <ConnectorPoint PointX="14.3242125" PointY="7.0421005612368139" />
+          <ConnectorPoint PointX="14.3242125" PointY="6.9786588541666656" />
+          <ConnectorPoint PointX="15.072916666666666" PointY="6.9786588541666648" />
+          <ConnectorPoint PointX="15.239583333333334" PointY="6.9786588541666656" />
+          <ConnectorPoint PointX="16.63875" PointY="6.9786588541666656" />
+          <ConnectorPoint PointX="16.63875" PointY="6.8432421874999987" />
+          <ConnectorPoint PointX="18" PointY="6.8432421874999987" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Site_Status" >
+          <ConnectorPoint PointX="1.5" PointY="9.6917936197916674" />
+          <ConnectorPoint PointX="1.5" PointY="12.5" />
+          <ConnectorPoint PointX="11.291666666666666" PointY="12.5" />
+          <ConnectorPoint PointX="11.458333333333334" PointY="12.5" />
+          <ConnectorPoint PointX="11.697919166666667" PointY="12.5" />
+          <ConnectorPoint PointX="11.864585833333335" PointY="12.5" />
+          <ConnectorPoint PointX="13" PointY="12.5" />
+          <ConnectorPoint PointX="13" PointY="13.5381982421875" />
+          <ConnectorPoint PointX="13.375" PointY="13.5381982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Tickets_TicketClassfication" >
+          <ConnectorPoint PointX="17.25" PointY="9.961293945312498" />
+          <ConnectorPoint PointX="18" PointY="9.961293945312498" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Tickets_TicketPriority" >
+          <ConnectorPoint PointX="17.25" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="18.057287916666667" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="18.223954583333331" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="18.260414166666667" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="18.427080833333331" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="18.463540416666667" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="18.630207083333332" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="18.75" PointY="13.057444661458334" />
+          <ConnectorPoint PointX="18.75" PointY="11.191549479166667" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Tickets_ReportMethod" >
+          <ConnectorPoint PointX="17.25" PointY="15.961293945312498" />
+          <ConnectorPoint PointX="18.057287916666667" PointY="15.961293945312498" />
+          <ConnectorPoint PointX="18.223954583333331" PointY="15.961293945312498" />
+          <ConnectorPoint PointX="18.3437475" PointY="15.961293945312498" />
+          <ConnectorPoint PointX="18.3437475" PointY="11.191549479166667" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Tickets_TicketResolution" >
+          <ConnectorPoint PointX="17.25" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="18.057287916666667" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="18.223954583333331" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="18.463540416666667" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="18.630207083333332" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="19.1562525" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="19.1562525" PointY="11.191549479166667" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Tickets_TicketStatus" >
+          <ConnectorPoint PointX="17.25" PointY="21.836293945312498" />
+          <ConnectorPoint PointX="18.14062125" PointY="21.836293945312498" />
+          <ConnectorPoint PointX="18.14062125" PointY="11.191549479166667" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Tickets_TicketType" >
+          <ConnectorPoint PointX="17.25" PointY="24.836293945312498" />
+          <ConnectorPoint PointX="18.54687375" PointY="24.836293945312498" />
+          <ConnectorPoint PointX="18.54687375" PointY="11.191549479166667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="webzyModel.Customer" Width="1.5" PointX="5.25" PointY="0.75" Height="3.1340950520833246" />
+        <AssociationConnector Association="webzyModel.FK_ContactPerson_Customer" >
+          <ConnectorPoint PointX="6.75" PointY="1.53125" />
+          <ConnectorPoint PointX="11.7812525" PointY="1.53125" />
+          <ConnectorPoint PointX="11.7812525" PointY="13.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Customer_Status" >
+          <ConnectorPoint PointX="1.5" PointY="6.75" />
+          <ConnectorPoint PointX="1.5" PointY="3.5307421874999951" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="3.5307421874999947" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="3.5307421874999951" />
+          <ConnectorPoint PointX="5.25" PointY="3.5307421874999951" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Customer_WebUser" >
+          <ConnectorPoint PointX="4.5" PointY="8.18846053846154" />
+          <ConnectorPoint PointX="4.9375" PointY="7.7509605384615394" />
+          <ConnectorPoint PointX="4.9375" PointY="2.1091190937500039" />
+          <ConnectorPoint PointX="5.25" PointY="2.1091190937500039" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Site_Customer" >
+          <ConnectorPoint PointX="6.75" PointY="2.7389245260416559" />
+          <ConnectorPoint PointX="7.5" PointY="2.7389245260416559" />
+          <ConnectorPoint PointX="7.5" PointY="5.047587890625" />
+          <ConnectorPoint PointX="11.697919166666667" PointY="5.0475878906249987" />
+          <ConnectorPoint PointX="11.864585833333335" PointY="5.047587890625" />
+          <ConnectorPoint PointX="12.041666666666666" PointY="5.0475878906249987" />
+          <ConnectorPoint PointX="12.208333333333334" PointY="5.047587890625" />
+          <ConnectorPoint PointX="12.25" PointY="5.047587890625" />
+          <ConnectorPoint PointX="12.25" PointY="7.2074186197916656" />
+          <ConnectorPoint PointX="14.14062225" PointY="7.2074186197916656" />
+          <ConnectorPoint PointX="14.14062225" PointY="11.875" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="webzyModel.CustomerView" Width="1.5" PointX="7.375" PointY="16.75" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="webzyModel.SiteView" Width="1.5" PointX="9.375" PointY="17.75" Height="2.7494921875000102" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,128 @@
+﻿/**************************************
+Main style inherited from bootstrap
+list of item will overwrite exsiting boostrap design
+
+1.Global Styles – (body, paragraphs, lists, etc)
+2.Header
+3.Page Structure
+4.Item Styles
+5.Navigation
+6.Forms
+7.Comments
+8.Extras
+***************************************/
+@import url('../Scripts/jquery-2.0.2.min.js');
+@import url('../bootstrap/css/bootstrap.min.css');
+
+/* ----------------------------------------------------*/
+/* ---------->>> 1 . Global Styles <<<-----------*/
+/* --------------------------------------------------*/
+body {
+	 background-color: #f5f5f5;
+}
+
+#footer
+{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	height: 20px;
+	background-color: Black;
+	padding-top: 2px;
+	padding-bottom: 1px;
+	color: #FFFFFF;
+}
+
+#footer:after
+{ 
+	content:"@Copyright 2013 www.web-zy.com";
+}
+
+/* ----------------------------------------------------*/
+/* ---------->>> 2 . Header <<<-----------*/
+/* --------------------------------------------------*/
+
+/*OverWrite Bootstrap*/
+.navbar-fixed-top .navbar-inner, .navbar-fixed-bottom .navbar-inner .navbar
+{
+	padding-top:5px;
+	height:45px;
+}
+
+
+/* ----------------------------------------------------*/
+/* ---------->>> 3 . Page Structure <<<-----------*/
+/* --------------------------------------------------*/
+
+.ContentInside
+{
+   vertical-align:middle;   
+}
+
+
+
+/* ----------------------------------------------------*/
+/* ---------->>> 4 . Item Styles <<<-----------*/
+/* --------------------------------------------------*/
+.label
+{
+	font-size: 12px;
+	font-family: Tahoma;
+	font-weight: bold;
+	color:#004A66;
+	background-color: transparent;
+	
+}
+/* ----------------------------------------------------*/
+/* ---------->>> 5 . Navigation <<<-----------*/
+/* --------------------------------------------------*/
+
+/* ----------------------------------------------------*/
+/* ---------->>> 6 . Forms <<<-----------*/
+/* --------------------------------------------------*/
+
+/* ----------------------------------------------------*/
+/* ---------->>> 7 . Comments <<<-----------*/
+/* --------------------------------------------------*/
+
+
+/* ----------------------------------------------------*/
+/* ---------->>> 8 . Extras <<<-----------*/
+/* --------------------------------------------------*/
+	.txtCenter {text-align: center;} 
+	.hiden{display:none;}
+	.layoutHight100{height: 100px;}
+
+/*For Window Pop-up*/
+	
+.Popup_background_Pannel
+{
+    background: #FFFFFF;
+    z-index: 1;
+    position:fixed;
+    filter: alpha(opacity=75);
+    opacity:.75;
+    top:0px;
+    left:0px;
+    Padding-top:15%;
+    height :100%;
+    width:100%;
+}
+
+.PopupBox
+{
+	padding: 5px;
+	position: fixed;
+	z-index: 99;
+	text-align: center;
+	top: 0;
+	margin-top: 15%;
+	margin-left: 25%;
+	background: #FBFBF2;
+}  
+
+
+
+
+
+
