@@ -416,7 +416,7 @@
           <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="CustomerFk" Type="int" Nullable="false" />
           <Property Name="CountryFk" Type="int" />
-          <Property Name="SiteName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="SiteName" Type="varchar" MaxLength="250" />
           <Property Name="Address" Type="varchar" Nullable="false" MaxLength="500" />
           <Property Name="StatusFk" Type="int" Nullable="false" />
           <Property Name="Remark" Type="varchar" MaxLength="250" />
@@ -1127,7 +1127,6 @@
           <EntitySet Name="Emails" EntityType="webzyModel.Email" />
           <EntitySet Name="FileUploads" EntityType="webzyModel.FileUpload" />
           <EntitySet Name="LDAPSettings" EntityType="webzyModel.LDAPSetting" />
-          <EntitySet Name="Sites" EntityType="webzyModel.Site" />
           <EntitySet Name="SiteLogs" EntityType="webzyModel.SiteLog" />
           <EntitySet Name="TicketClassificationNames" EntityType="webzyModel.TicketClassificationName" />
           <EntitySet Name="TicketLogs" EntityType="webzyModel.TicketLog" />
@@ -1140,10 +1139,6 @@
           <AssociationSet Name="FK_ContactPerson_Status" Association="webzyModel.FK_ContactPerson_Status">
             <End Role="Status" EntitySet="Status" />
             <End Role="ContactPerson" EntitySet="ContactPersons" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Site_Country" Association="webzyModel.FK_Site_Country">
-            <End Role="Country" EntitySet="Countries" />
-            <End Role="Site" EntitySet="Sites" />
           </AssociationSet>
           <AssociationSet Name="FK_IncomingAttachment_IncomingEmail" Association="webzyModel.FK_IncomingAttachment_IncomingEmail">
             <End Role="Email" EntitySet="Emails" />
@@ -1160,10 +1155,6 @@
           <AssociationSet Name="FK_Tickets_Group" Association="webzyModel.FK_Tickets_Group">
             <End Role="Group" EntitySet="Groups" />
             <End Role="Ticket" EntitySet="Tickets" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Site_Status" Association="webzyModel.FK_Site_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="Site" EntitySet="Sites" />
           </AssociationSet>
           <AssociationSet Name="FK_Tickets_TicketClassfication" Association="webzyModel.FK_Tickets_TicketClassfication">
             <End Role="TicketClassificationName" EntitySet="TicketClassificationNames" />
@@ -1202,13 +1193,22 @@
             <End Role="WebUser" EntitySet="WebUsers" />
             <End Role="Customer" EntitySet="Customers" />
           </AssociationSet>
+          <EntitySet Name="CustomerViews" EntityType="webzyModel.CustomerView" />
+          <EntitySet Name="SiteViews" EntityType="webzyModel.SiteView" />
+          <EntitySet Name="Sites" EntityType="webzyModel.Site" />
+          <AssociationSet Name="FK_Site_Country" Association="webzyModel.FK_Site_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="Site" EntitySet="Sites" />
+          </AssociationSet>
           <AssociationSet Name="FK_Site_Customer" Association="webzyModel.FK_Site_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Site" EntitySet="Sites" />
           </AssociationSet>
-          <EntitySet Name="CustomerViews" EntityType="webzyModel.CustomerView" />
-          <EntitySet Name="SiteViews" EntityType="webzyModel.SiteView" />
-        </EntityContainer>
+          <AssociationSet Name="FK_Site_Status" Association="webzyModel.FK_Site_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Site" EntitySet="Sites" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="Country">
           <Key>
             <PropertyRef Name="Id" />
@@ -1305,8 +1305,8 @@
           <NavigationProperty Name="Roles" Relationship="webzyModel.FK_Role_Status" FromRole="Status" ToRole="Role" />
           <NavigationProperty Name="WebUsers" Relationship="webzyModel.FK_WebUser_Status" FromRole="Status" ToRole="WebUser" />
           <NavigationProperty Name="ContactPersons" Relationship="webzyModel.FK_ContactPerson_Status" FromRole="Status" ToRole="ContactPerson" />
-          <NavigationProperty Name="Sites" Relationship="webzyModel.FK_Site_Status" FromRole="Status" ToRole="Site" />
           <NavigationProperty Name="Customers" Relationship="webzyModel.FK_Customer_Status" FromRole="Status" ToRole="Customer" />
+          <NavigationProperty Name="Sites" Relationship="webzyModel.FK_Site_Status" FromRole="Status" ToRole="Site" />
         </EntityType>
         <EntityType Name="WebUser">
           <Key>
@@ -1662,23 +1662,6 @@
           <Property Type="String" Name="ModifyBy" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="ModifyOn" />
         </EntityType>
-        <EntityType Name="Site">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="Int32" Name="CustomerFk" Nullable="false" />
-          <Property Type="Int32" Name="CountryFk" />
-          <Property Type="String" Name="SiteName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="Address" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Type="Int32" Name="StatusFk" Nullable="false" />
-          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
-          <NavigationProperty Name="Country" Relationship="webzyModel.FK_Site_Country" FromRole="Site" ToRole="Country" />
-          <NavigationProperty Name="Status" Relationship="webzyModel.FK_Site_Status" FromRole="Site" ToRole="Status" />
-          <NavigationProperty Name="Customer" Relationship="webzyModel.FK_Site_Customer" FromRole="Site" ToRole="Customer" />
-        </EntityType>
         <EntityType Name="SiteLog">
           <Key>
             <PropertyRef Name="Id" />
@@ -1865,18 +1848,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Site_Country">
-          <End Type="webzyModel.Country" Role="Country" Multiplicity="0..1" />
-          <End Type="webzyModel.Site" Role="Site" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Country">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Site">
-              <PropertyRef Name="CountryFk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_IncomingAttachment_IncomingEmail">
           <End Type="webzyModel.Email" Role="Email" Multiplicity="0..1" />
           <End Type="webzyModel.EmailAttachment" Role="EmailAttachment" Multiplicity="*" />
@@ -1922,18 +1893,6 @@
             </Principal>
             <Dependent Role="Ticket">
               <PropertyRef Name="AssigntoGroupFk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Site_Status">
-          <End Type="webzyModel.Status" Role="Status" Multiplicity="1" />
-          <End Type="webzyModel.Site" Role="Site" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Site">
-              <PropertyRef Name="StatusFk" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2061,18 +2020,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Site_Customer">
-          <End Type="webzyModel.Customer" Role="Customer" Multiplicity="1" />
-          <End Type="webzyModel.Site" Role="Site" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Site">
-              <PropertyRef Name="CustomerFk" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="CustomerView">
           <Key>
             <PropertyRef Name="CustomerName" />
@@ -2111,7 +2058,60 @@
           <Property Type="Int32" Name="CountryFk" />
           <Property Type="Int32" Name="CustomerId" Nullable="false" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CustomerFk" Nullable="false" />
+          <Property Type="Int32" Name="CountryFk" />
+          <Property Type="String" Name="SiteName" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="StatusFk" Nullable="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="webzyModel.FK_Site_Country" FromRole="Site" ToRole="Country" />
+          <NavigationProperty Name="Customer" Relationship="webzyModel.FK_Site_Customer" FromRole="Site" ToRole="Customer" />
+          <NavigationProperty Name="Status" Relationship="webzyModel.FK_Site_Status" FromRole="Site" ToRole="Status" />
+        </EntityType>
+        <Association Name="FK_Site_Country">
+          <End Type="webzyModel.Country" Role="Country" Multiplicity="0..1" />
+          <End Type="webzyModel.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="CountryFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Customer">
+          <End Type="webzyModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="webzyModel.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="CustomerFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Site_Status">
+          <End Type="webzyModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="webzyModel.Site" Role="Site" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Site">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -2414,21 +2414,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sites">
-            <EntityTypeMapping TypeName="webzyModel.Site">
-              <MappingFragment StoreEntitySet="Site">
-                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="Remark" ColumnName="Remark" />
-                <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
-                <ScalarProperty Name="CountryFk" ColumnName="CountryFk" />
-                <ScalarProperty Name="CustomerFk" ColumnName="CustomerFk" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SiteLogs">
             <EntityTypeMapping TypeName="webzyModel.SiteLog">
               <MappingFragment StoreEntitySet="SiteLog">
@@ -2638,6 +2623,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="webzyModel.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="CountryFk" ColumnName="CountryFk" />
+                <ScalarProperty Name="CustomerFk" ColumnName="CustomerFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2716,14 +2716,10 @@
         <EntityTypeShape EntityType="webzyModel.GroupLog" Width="1.5" PointX="12.375" PointY="7.75" Height="2.5571907552083388" />
         <EntityTypeShape EntityType="webzyModel.WebUserView" Width="1.5" PointX="7.375" PointY="12.75" Height="2.7494921875000031" />
         <AssociationConnector Association="webzyModel.FK_UserGroup_WebUser" >
-          <ConnectorPoint PointX="4.5" PointY="11.66321608723959" />
-          <ConnectorPoint PointX="11.697919166666667" PointY="11.66321608723959" />
-          <ConnectorPoint PointX="11.864585833333335" PointY="11.66321608723959" />
-          <ConnectorPoint PointX="14.057288916666666" PointY="11.66321608723959" />
-          <ConnectorPoint PointX="14.223955583333334" PointY="11.66321608723959" />
-          <ConnectorPoint PointX="14.322916166666667" PointY="11.66321608723959" />
-          <ConnectorPoint PointX="14.489582833333335" PointY="11.66321608723959" />
-          <ConnectorPoint PointX="15.15625" PointY="11.66321608723959" />
+          <ConnectorPoint PointX="4.5" PointY="11.723043619791667" />
+          <ConnectorPoint PointX="11.416666666666666" PointY="11.723043619791667" />
+          <ConnectorPoint PointX="11.583333333333334" PointY="11.723043619791667" />
+          <ConnectorPoint PointX="15.15625" PointY="11.723043619791667" />
           <ConnectorPoint PointX="15.15625" PointY="6.6821907552083326" />
         </AssociationConnector>
         <EntityTypeShape EntityType="webzyModel.UserGroupLog" Width="1.5" PointX="12.375" PointY="0.75" Height="2.1725878906250031" />
@@ -2735,7 +2731,6 @@
         <EntityTypeShape EntityType="webzyModel.Email" Width="1.5" PointX="20.25" PointY="2.125" Height="4.48020507812501" />
         <EntityTypeShape EntityType="webzyModel.FileUpload" Width="1.5" PointX="20.25" PointY="7.25" Height="2.5571907552083237" />
         <EntityTypeShape EntityType="webzyModel.LDAPSetting" Width="1.5" PointX="0.75" PointY="17.25" Height="2.1725878906250102" />
-        <EntityTypeShape EntityType="webzyModel.Site" Width="1.5" PointX="13.375" PointY="11.875" Height="3.3263964843750102" />
         <EntityTypeShape EntityType="webzyModel.SiteLog" Width="1.5" PointX="2.75" PointY="17.25" Height="2.7494921875000102" />
         <EntityTypeShape EntityType="webzyModel.TicketClassificationName" Width="1.5" PointX="15.75" PointY="8.875" Height="2.172587890624996" />
         <EntityTypeShape EntityType="webzyModel.TicketLog" Width="1.5" PointX="4.75" PointY="17.25" Height="7.5570279947916674" />
@@ -2749,19 +2744,8 @@
           <ConnectorPoint PointX="2.25" PointY="8.0021468098958337" />
           <ConnectorPoint PointX="2.75" PointY="8.0021468098958337" />
           <ConnectorPoint PointX="2.75" PointY="12.085999348958332" />
-          <ConnectorPoint PointX="11.375" PointY="12.085999348958332" />
-          <ConnectorPoint PointX="11.375" PointY="13.125" />
-        </AssociationConnector>
-        <AssociationConnector Association="webzyModel.FK_Site_Country" >
-          <ConnectorPoint PointX="9.25" PointY="3.4612939453125" />
-          <ConnectorPoint PointX="9.5" PointY="3.4612939453125" />
-          <ConnectorPoint PointX="9.5" PointY="4.797587890625" />
-          <ConnectorPoint PointX="11.697919166666667" PointY="4.7975878906249987" />
-          <ConnectorPoint PointX="11.864585833333335" PointY="4.797587890625" />
-          <ConnectorPoint PointX="12.125" PointY="4.797587890625" />
-          <ConnectorPoint PointX="12.125" PointY="7.1917936197916656" />
-          <ConnectorPoint PointX="14.406249500000001" PointY="7.1917936197916656" />
-          <ConnectorPoint PointX="14.406249500000001" PointY="11.875" />
+          <ConnectorPoint PointX="11.17187425" PointY="12.085999348958332" />
+          <ConnectorPoint PointX="11.17187425" PointY="13.125" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_IncomingAttachment_IncomingEmail" >
           <ConnectorPoint PointX="21.75" PointY="4.3074446614583337" />
@@ -2776,7 +2760,7 @@
           <ConnectorPoint PointX="20.25" PointY="8.5285953776041623" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_Tickets_Group" ManuallyRouted="true" >
-          <ConnectorPoint PointX="13.875" PointY="6.9417936197916656" />
+          <ConnectorPoint PointX="13.875" PointY="6.8467897751583617" />
           <ConnectorPoint PointX="14.3242125" PointY="7.0421005612368139" />
           <ConnectorPoint PointX="14.3242125" PointY="6.9786588541666656" />
           <ConnectorPoint PointX="15.072916666666666" PointY="6.9786588541666648" />
@@ -2784,17 +2768,6 @@
           <ConnectorPoint PointX="16.63875" PointY="6.9786588541666656" />
           <ConnectorPoint PointX="16.63875" PointY="6.8432421874999987" />
           <ConnectorPoint PointX="18" PointY="6.8432421874999987" />
-        </AssociationConnector>
-        <AssociationConnector Association="webzyModel.FK_Site_Status" >
-          <ConnectorPoint PointX="1.5" PointY="9.6917936197916674" />
-          <ConnectorPoint PointX="1.5" PointY="12.5" />
-          <ConnectorPoint PointX="11.291666666666666" PointY="12.5" />
-          <ConnectorPoint PointX="11.458333333333334" PointY="12.5" />
-          <ConnectorPoint PointX="11.697919166666667" PointY="12.5" />
-          <ConnectorPoint PointX="11.864585833333335" PointY="12.5" />
-          <ConnectorPoint PointX="13" PointY="12.5" />
-          <ConnectorPoint PointX="13" PointY="13.5381982421875" />
-          <ConnectorPoint PointX="13.375" PointY="13.5381982421875" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_Tickets_TicketClassfication" >
           <ConnectorPoint PointX="17.25" PointY="9.961293945312498" />
@@ -2839,39 +2812,55 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="webzyModel.Customer" Width="1.5" PointX="5.25" PointY="0.75" Height="3.1340950520833246" />
         <AssociationConnector Association="webzyModel.FK_ContactPerson_Customer" >
-          <ConnectorPoint PointX="6.75" PointY="1.53125" />
-          <ConnectorPoint PointX="11.7812525" PointY="1.53125" />
-          <ConnectorPoint PointX="11.7812525" PointY="13.125" />
+          <ConnectorPoint PointX="6.75" PointY="2.3170475260416667" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="2.3170475260416663" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="2.3170475260416667" />
+          <ConnectorPoint PointX="7.5" PointY="2.3170475260416667" />
+          <ConnectorPoint PointX="7.5" PointY="5.125" />
+          <ConnectorPoint PointX="11.5" PointY="5.125" />
+          <ConnectorPoint PointX="11.5" PointY="12.75" />
+          <ConnectorPoint PointX="11.679689125" PointY="12.75" />
+          <ConnectorPoint PointX="11.679689125" PointY="13.125" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_Customer_Status" >
           <ConnectorPoint PointX="1.5" PointY="6.75" />
-          <ConnectorPoint PointX="1.5" PointY="3.5307421874999951" />
-          <ConnectorPoint PointX="4.854166666666667" PointY="3.5307421874999947" />
-          <ConnectorPoint PointX="5.020833333333333" PointY="3.5307421874999951" />
-          <ConnectorPoint PointX="5.25" PointY="3.5307421874999951" />
+          <ConnectorPoint PointX="1.5" PointY="3.5307421874999996" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="3.5307421874999991" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="3.5307421874999996" />
+          <ConnectorPoint PointX="5.25" PointY="3.5307421874999996" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_Customer_WebUser" >
           <ConnectorPoint PointX="4.5" PointY="8.18846053846154" />
           <ConnectorPoint PointX="4.9375" PointY="7.7509605384615394" />
-          <ConnectorPoint PointX="4.9375" PointY="2.1091190937500039" />
-          <ConnectorPoint PointX="5.25" PointY="2.1091190937500039" />
-        </AssociationConnector>
-        <AssociationConnector Association="webzyModel.FK_Site_Customer" >
-          <ConnectorPoint PointX="6.75" PointY="2.7389245260416559" />
-          <ConnectorPoint PointX="7.5" PointY="2.7389245260416559" />
-          <ConnectorPoint PointX="7.5" PointY="5.047587890625" />
-          <ConnectorPoint PointX="11.697919166666667" PointY="5.0475878906249987" />
-          <ConnectorPoint PointX="11.864585833333335" PointY="5.047587890625" />
-          <ConnectorPoint PointX="12.041666666666666" PointY="5.0475878906249987" />
-          <ConnectorPoint PointX="12.208333333333334" PointY="5.047587890625" />
-          <ConnectorPoint PointX="12.25" PointY="5.047587890625" />
-          <ConnectorPoint PointX="12.25" PointY="7.2074186197916656" />
-          <ConnectorPoint PointX="14.14062225" PointY="7.2074186197916656" />
-          <ConnectorPoint PointX="14.14062225" PointY="11.875" />
+          <ConnectorPoint PointX="4.9375" PointY="2.1091190937500062" />
+          <ConnectorPoint PointX="5.25" PointY="2.1091190937500062" />
         </AssociationConnector>
         <EntityTypeShape EntityType="webzyModel.CustomerView" Width="1.5" PointX="7.375" PointY="16.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="webzyModel.SiteView" Width="1.5" PointX="9.375" PointY="17.75" Height="2.7494921875000102" />
-      </Diagram>
+        <EntityTypeShape EntityType="webzyModel.Site" Width="1.5" PointX="10" PointY="0.75" Height="3.3263964843750102" />
+        <AssociationConnector Association="webzyModel.FK_Site_Country" >
+          <ConnectorPoint PointX="8.5" PointY="2.375" />
+          <ConnectorPoint PointX="8.5" PointY="1.5624995" />
+          <ConnectorPoint PointX="10" PointY="1.5624995" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Site_Customer" >
+          <ConnectorPoint PointX="6.75" PointY="1.0937497500000002" />
+          <ConnectorPoint PointX="10" PointY="1.0937497500000002" />
+        </AssociationConnector>
+        <AssociationConnector Association="webzyModel.FK_Site_Status" >
+          <ConnectorPoint PointX="1.9062519999999998" PointY="6.75" />
+          <ConnectorPoint PointX="1.9062519999999998" PointY="4.1340950520833335" />
+          <ConnectorPoint PointX="4.791666666666667" PointY="4.1340950520833326" />
+          <ConnectorPoint PointX="5.020833333333333" PointY="4.1340950520833335" />
+          <ConnectorPoint PointX="7.25" PointY="4.1340950520833335" />
+          <ConnectorPoint PointX="7.25" PointY="1.875" />
+          <ConnectorPoint PointX="8.4166666666666661" PointY="1.8749999999999993" />
+          <ConnectorPoint PointX="8.5833333333333339" PointY="1.875" />
+          <ConnectorPoint PointX="9.625" PointY="1.875" />
+          <ConnectorPoint PointX="9.625" PointY="1.9687522499999937" />
+          <ConnectorPoint PointX="10" PointY="1.9687522499999937" />
+        </AssociationConnector>
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

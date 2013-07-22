@@ -51,7 +51,6 @@ namespace webzy.DataEntities
         public DbSet<Email> Emails { get; set; }
         public DbSet<FileUpload> FileUploads { get; set; }
         public DbSet<LDAPSetting> LDAPSettings { get; set; }
-        public DbSet<Site> Sites { get; set; }
         public DbSet<SiteLog> SiteLogs { get; set; }
         public DbSet<TicketClassificationName> TicketClassificationNames { get; set; }
         public DbSet<TicketLog> TicketLogs { get; set; }
@@ -64,5 +63,6 @@ namespace webzy.DataEntities
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerView> CustomerViews { get; set; }
         public DbSet<SiteView> SiteViews { get; set; }
+        public DbSet<Site> Sites { get; set; }
     }
 }

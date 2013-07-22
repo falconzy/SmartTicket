@@ -45,9 +45,7 @@ namespace webzy.WebApplication.CustomerManagement
 				if (ValidateSiteUI())
 				{
 					string SiteName = (txtSiteName.Text.Length > 0) ? txtSiteName.Text.ToString().Trim() : string.Empty;
-					string SiteAddress = txtSiteAddress.Text;
-					SiteAddress += " " + txtSiteAddress1.Text;
-					SiteAddress += " " + txtSiteAddress2.Text;
+					string SiteAddress = txtSiteAddress.Text;					
 					int CountryFk = Convert.ToInt32(ddlCountry.SelectedValue);
 					DataTable SiteInfo = new DataTable();
 					if (ViewState["tblSite"] != null)
@@ -186,7 +184,7 @@ namespace webzy.WebApplication.CustomerManagement
 		}
 		private bool ValidateSiteUI()
 		{
-			if (string.IsNullOrWhiteSpace(this.txtSiteAddress.Text) && string.IsNullOrWhiteSpace(this.txtSiteAddress1.Text) && string.IsNullOrWhiteSpace(this.txtSiteAddress2.Text))
+			if (string.IsNullOrWhiteSpace(this.txtSiteAddress.Text))
 			{
 				lblSiteErrorMsg.Text = "Please enter the site address";
 				return false;
@@ -218,8 +216,6 @@ namespace webzy.WebApplication.CustomerManagement
 		{
 			txtSiteName.Text = string.Empty;
 			txtSiteAddress.Text = string.Empty;
-			txtSiteAddress1.Text = string.Empty;
-			txtSiteAddress2.Text = string.Empty;
 			LoadCountry();
 		}
 		#endregion

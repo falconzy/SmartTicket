@@ -61,7 +61,7 @@
 						<div>		
 								  <asp:GridView ID="GroupViewSummary" runat="server" AllowPaging="True" 
 						AllowSorting="True" AutoGenerateColumns="False" BackColor="White" 
-						CellPadding="3" CssClass="gridview" Width="100%" BorderColor="#CCCCCC" BorderStyle="None" 
+						CellPadding="3" CssClass="gridview" Width="100%" BorderColor="#CCCCCC" BorderStyle="Solid" 
 									  BorderWidth="1px" onpageindexchanging="GroupViewSummary_PageIndexChanging" 
                                       onselectedindexchanging="GroupViewSummary_SelectedIndexChanging" 
                                       onsorting="GroupViewSummary_OnSorting">

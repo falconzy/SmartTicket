@@ -59,9 +59,9 @@
 								<asp:Label ID="lblSiteAddress" runat="server" CssClass="label" 
 									Text="Site Address :"></asp:Label>
 							</td>
-							<td style="text-align: left">
+							<td style="text-align: left" rowspan="3">
 								<asp:TextBox ID="txtSiteAddress" runat="server" CssClass="textbox" 
-									Width="250px"></asp:TextBox>
+									Width="250px" Height="100px" TextMode="MultiLine"></asp:TextBox>
 								<ajaxToolkit:TextBoxWatermarkExtender ID="txtSiteAddress_TextBoxWatermarkExtender" 
 									runat="server" TargetControlID="txtSiteAddress" WatermarkText="Address Line 1">
 								</ajaxToolkit:TextBoxWatermarkExtender>
@@ -70,24 +70,10 @@
 						<tr>
 							<td class="ColStyle" height="25" style="text-align: left">
 								&nbsp;</td>
-							<td style="text-align: left">
-								<asp:TextBox ID="txtSiteAddress1" runat="server" CssClass="textbox" 
-									Width="250px"></asp:TextBox>
-								<ajaxToolkit:TextBoxWatermarkExtender ID="txtSiteAddress1_TextBoxWatermarkExtender" 
-									runat="server" TargetControlID="txtSiteAddress1" WatermarkText="Address Line 2">
-								</ajaxToolkit:TextBoxWatermarkExtender>
-							</td>
 						</tr>
 						<tr>
 							<td class="ColStyle" height="25" style="text-align: left">
 								&nbsp;</td>
-							<td style="text-align: left">
-								<asp:TextBox ID="txtSiteAddress2" runat="server" CssClass="textbox" 
-									Width="250px"></asp:TextBox>
-								<ajaxToolkit:TextBoxWatermarkExtender ID="txtSiteAddress2_TextBoxWatermarkExtender" 
-									runat="server" TargetControlID="txtSiteAddress2" WatermarkText="Address Line 3">
-								</ajaxToolkit:TextBoxWatermarkExtender>
-							</td>
 						</tr>
 						<tr>
 							<td class="ColStyle" height="25" style="text-align: left">

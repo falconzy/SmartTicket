@@ -77,7 +77,7 @@
 				  <div style="margin-right: 5px; margin-left: 5px">
 							<asp:GridView ID="UserViewSummary" runat="server" AllowPaging="True" AllowSorting="True"
 								AutoGenerateColumns="False" CellPadding="3"
-								Width="100%" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" 
+								Width="100%" BackColor="White" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" 
 								onpageindexchanging="UserViewSummary_PageIndexChanging" 
 								onselectedindexchanging="UserViewSummary_SelectedIndexChanging" 
 								onsorting="UserViewSummary_OnSorting" >

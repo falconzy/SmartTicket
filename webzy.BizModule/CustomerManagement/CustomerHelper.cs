@@ -55,8 +55,9 @@ namespace webzy.BizModule.CustomerManagement
 						NewCustomerLog.Name = NewCustomer.Name;
 						NewCustomerLog.Status = Active;
 						NewCustomerLog.CreatedBy = UserName;
+						NewCustomerLog.Remark = "ADD";
 						NewCustomerLog.ModifiedBy = UserName;
-						NewCustomer.ModifiedOn = DateTime.Now;
+						NewCustomerLog.ModifiedOn = DateTime.Now;
 
 						ctx.CustomerLogs.Add(NewCustomerLog);
 						ctx.SaveChanges();
@@ -95,6 +96,7 @@ namespace webzy.BizModule.CustomerManagement
 						NewSiteLog.Country = CountryName;
 						NewSiteLog.Address = SiteAddress;
 						NewSiteLog.Status = Active;
+						NewSiteLog.Remark = "ADD";
 						NewSiteLog.ModifiedBy = UserName;
 						NewSiteLog.ModifiedOn = DateTime.Now;
 
@@ -204,7 +206,6 @@ namespace webzy.BizModule.CustomerManagement
 				throw ex;
 			}
 		}
-
 		public SiteView GetSiteInfoBy(int SiteId)
 		{
 			try
@@ -220,14 +221,101 @@ namespace webzy.BizModule.CustomerManagement
 				throw ex;
 			}
 		}
+		public void updateSite(int SiteId, int CustomerId, int CountryId, string SiteName, string SiteAddress, int SiteStatus, string UserName, string CustomerName, string CountryName, string SiteStatusName)
+		{
+			try
+			{
+				using (webzyEntities ctx = new webzyEntities())
+				{
+					var ExsitSiteInfo = (from c in ctx.Sites where c.Id == SiteId select c).SingleOrDefault();
+
+					ExsitSiteInfo.SiteName = SiteName;
+					ExsitSiteInfo.CustomerFk = CustomerId;
+					ExsitSiteInfo.CountryFk = CountryId;
+					ExsitSiteInfo.Address = SiteAddress;
+					ExsitSiteInfo.StatusFk = SiteStatus;
+					ExsitSiteInfo.ModifiedBy = UserName;
+					ExsitSiteInfo.ModifiedOn = DateTime.Now;
+					ctx.SaveChanges();
+
+					if (ExsitSiteInfo.Id > 0)
+					{
+						SiteLog NewSiteLog = new SiteLog();
+						NewSiteLog.SiteName = SiteName;
+						NewSiteLog.CustomerName = CustomerName;
+						NewSiteLog.Country = CountryName;
+						NewSiteLog.Address = SiteAddress;
+						NewSiteLog.Status = SiteStatusName;
+						NewSiteLog.Remark = "UPDATE";
+						NewSiteLog.ModifiedBy = UserName;
+						NewSiteLog.ModifiedOn = DateTime.Now;
+
+						ctx.SiteLogs.Add(NewSiteLog);
+						ctx.SaveChanges();
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception("Problem in update site info:" + ex.Message + "");
+			}
+		}
+		public bool duplicateUpdateNames(string CustomerName)
+		{
+			try
+			{
+				using (webzyEntities ctx = new webzyEntities())
+				{
+					var Customer = from u in ctx.Customers where u.Name == CustomerName select u;
+					if (Customer.Count() > 1)
+					{
+						return true;
+					}
+				}
+				return false;
+			}
+			catch (Exception ex)
+			{
+				throw new Exception("Problem in Checking Customer Name info:" + ex.Message + "");
+
+			}
+		}
+
+		public void updateCustomer(int CustomerId, string CustomerName, int statusId, string UserName, string StatusName)
+		{
+			try
+			{
+
+				using (webzyEntities ctx = new webzyEntities())
+				{
+					var ExsitCustomer = (from c in ctx.Customers where c.Id == CustomerId select c).SingleOrDefault();
+					ExsitCustomer.Name = CustomerName;
+					ExsitCustomer.StatusFk = statusId;
+					ExsitCustomer.ModifiedBy = UserName;
+					ExsitCustomer.ModifiedOn = DateTime.Now;
+					ctx.SaveChanges();
+
+					if (ExsitCustomer.Id > 0)
+					{
+						CustomerLog NewCustomerLog = new CustomerLog();
+						NewCustomerLog.Name = ExsitCustomer.Name;
+						NewCustomerLog.Status = StatusName;
+						NewCustomerLog.Remark = "UPDATE";
+						NewCustomerLog.ModifiedBy = UserName;
+						NewCustomerLog.ModifiedOn = DateTime.Now;
+
+						ctx.CustomerLogs.Add(NewCustomerLog);
+						ctx.SaveChanges();
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				throw new Exception("Problem in add in new Customer info:" + ex.Message + "");
+
+			}
+		}
+
 		#endregion
-
-
-
-
-
-
-
-		
 	}
 }

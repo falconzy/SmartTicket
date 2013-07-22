@@ -121,42 +121,6 @@ namespace webzy.WebApplication.CustomerManagement {
         protected global::AjaxControlToolkit.TextBoxWatermarkExtender txtSiteAddress_TextBoxWatermarkExtender;
         
         /// <summary>
-        /// txtSiteAddress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSiteAddress1;
-        
-        /// <summary>
-        /// txtSiteAddress1_TextBoxWatermarkExtender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender txtSiteAddress1_TextBoxWatermarkExtender;
-        
-        /// <summary>
-        /// txtSiteAddress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSiteAddress2;
-        
-        /// <summary>
-        /// txtSiteAddress2_TextBoxWatermarkExtender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.TextBoxWatermarkExtender txtSiteAddress2_TextBoxWatermarkExtender;
-        
-        /// <summary>
         /// lblCountry control.
         /// </summary>
         /// <remarks>

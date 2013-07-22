@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-	<title>Add Customer</title>
+	<title>Edit Customer</title>
 		<link href="../Styles/Main.css" rel="stylesheet" type="text/css" />
 	<style type="text/css">
 		.Colstyle
@@ -28,7 +28,7 @@
 		<div id ="contentDetails" class="span8 offset2">
 		<div><h3>Edit Customer</h3></div>
 	  <div>
-		  <asp:UpdatePanel ID="UpdatePanelAddCustomer" runat="server" 
+		  <asp:UpdatePanel ID="UpdatePanelEditCustomer" runat="server" 
 			UpdateMode="Conditional">
 		<ContentTemplate>
 			<div class="ContentInside" style="text-align: center">
@@ -61,12 +61,9 @@
 						onsorting="GridViewSiteInfo_Sorting">
 						<Columns>
 							<asp:ButtonField ButtonType="Button" Text="EDIT" CommandName="select">
-							<ControlStyle CssClass="btn btn-info" Width="75px" />
+							<ControlStyle CssClass="btn btn-info" Width="75px" Font-Size="X-Small" />
 							<HeaderStyle Width="150px" />
 							<ItemStyle Width="150px" />
-							</asp:ButtonField>
-							<asp:ButtonField ButtonType="Button" Text="REMOVE">
-							<ControlStyle CssClass="btn btn-info" Width="100px" />
 							</asp:ButtonField>
 							<asp:BoundField DataField="SiteId" HeaderText="Site Id" SortExpression="SiteId">
 							<ControlStyle CssClass="hiden" />
@@ -98,11 +95,12 @@
 				<asp:Button ID="btnEdit" runat="server" CssClass="btn btn-inverse" Text="EDIT" 
 					Width="100px" onclick="btnEdit_Click" />
 				&nbsp;&nbsp;&nbsp;<asp:Button ID="btnCustomerUpdate" runat="server" 
-					CssClass="btn btn-inverse" Text="UPDATE" Visible="False" Width="100px" />
+					CssClass="btn btn-inverse" Text="UPDATE" Visible="False" Width="100px" 
+					onclick="btnCustomerUpdate_Click" />
 &nbsp;
 				&nbsp;
 				<asp:Button ID="btnCancel" runat="server" CssClass="btn btn-inverse" 
-					Text="BACK" Width="100px" />
+					Text="BACK" Width="100px" onclick="btnCancel_Click" />
 			</div>
 		</ContentTemplate>
 		<Triggers>
@@ -111,6 +109,7 @@
 			<asp:AsyncPostBackTrigger ControlID="GridViewSiteInfo" 
 				EventName="SelectedIndexChanging" />
 			<asp:AsyncPostBackTrigger ControlID="GridViewSiteInfo" EventName="Sorting" />
+			<asp:AsyncPostBackTrigger ControlID="btnSiteUpdate" EventName="Click" />
 		</Triggers>
 		</asp:UpdatePanel>
 		</div>
@@ -138,23 +137,7 @@
 							</td>
 							<td style="text-align: left">
 								<asp:TextBox ID="txtSiteAddress" runat="server" CssClass="textbox" 
-									Width="250px"></asp:TextBox>
-							</td>
-						</tr>
-						<tr>
-							<td class="ColStyle" height="25" style="text-align: left">
-								&nbsp;</td>
-							<td style="text-align: left">
-								<asp:TextBox ID="txtSiteAddress1" runat="server" CssClass="textbox" 
-									Width="250px"></asp:TextBox>
-							</td>
-						</tr>
-						<tr>
-							<td class="ColStyle" height="25" style="text-align: left">
-								&nbsp;</td>
-							<td style="text-align: left">
-								<asp:TextBox ID="txtSiteAddress2" runat="server" CssClass="textbox" 
-									Width="250px"></asp:TextBox>
+									Width="250px" Height="100px" TextMode="MultiLine"></asp:TextBox>
 							</td>
 						</tr>
 						<tr>
@@ -184,7 +167,7 @@
 						<tr>
 							<td class="ColStyle" colspan="2" height="25" style="text-align: center">
 								<asp:Button ID="btnSiteUpdate" runat="server" CssClass="btn btn-inverse" 
-									Text="UPDATE" Width="100px" />
+									Text="UPDATE" Width="100px" onclick="btnSiteUpdate_Click" />
 								&nbsp;&nbsp;
 								<asp:Button ID="btnSiteCancel" runat="server" CssClass="btn btn-inverse" 
 									Text="CANCEL" Width="100px" onclick="btnSiteCancel_Click" />
@@ -202,6 +185,8 @@
 				</asp:AsyncPostBackTrigger>
 				<asp:AsyncPostBackTrigger ControlID="btnSiteUpdate" EventName="Click" />
 				<asp:AsyncPostBackTrigger ControlID="btnSiteCancel" EventName="Click" />
+				<asp:AsyncPostBackTrigger ControlID="GridViewSiteInfo" 
+					EventName="RowDeleting" />
 			</Triggers>
 		</asp:UpdatePanel>
 	 

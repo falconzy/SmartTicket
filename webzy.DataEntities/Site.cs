@@ -25,7 +25,7 @@ namespace webzy.DataEntities
         public System.DateTime ModifiedOn { get; set; }
     
         public virtual Country Country { get; set; }
-        public virtual Status Status { get; set; }
         public virtual Customer Customer { get; set; }
+        public virtual Status Status { get; set; }
     }
 }

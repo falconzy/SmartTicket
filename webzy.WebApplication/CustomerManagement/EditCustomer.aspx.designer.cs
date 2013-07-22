@@ -49,13 +49,13 @@ namespace webzy.WebApplication.CustomerManagement {
         protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// UpdatePanelAddCustomer control.
+        /// UpdatePanelEditCustomer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelAddCustomer;
+        protected global::System.Web.UI.UpdatePanel UpdatePanelEditCustomer;
         
         /// <summary>
         /// lblCustomerName control.
@@ -191,24 +191,6 @@ namespace webzy.WebApplication.CustomerManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSiteAddress;
-        
-        /// <summary>
-        /// txtSiteAddress1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSiteAddress1;
-        
-        /// <summary>
-        /// txtSiteAddress2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSiteAddress2;
         
         /// <summary>
         /// lblCountry control.

@@ -19,8 +19,8 @@ namespace webzy.DataEntities
             this.Roles = new HashSet<Role>();
             this.WebUsers = new HashSet<WebUser>();
             this.ContactPersons = new HashSet<ContactPerson>();
-            this.Sites = new HashSet<Site>();
             this.Customers = new HashSet<Customer>();
+            this.Sites = new HashSet<Site>();
         }
     
         public int Id { get; set; }
@@ -32,7 +32,7 @@ namespace webzy.DataEntities
         public virtual ICollection<Role> Roles { get; set; }
         public virtual ICollection<WebUser> WebUsers { get; set; }
         public virtual ICollection<ContactPerson> ContactPersons { get; set; }
-        public virtual ICollection<Site> Sites { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
+        public virtual ICollection<Site> Sites { get; set; }
     }
 }

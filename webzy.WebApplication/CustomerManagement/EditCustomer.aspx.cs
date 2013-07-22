@@ -59,7 +59,6 @@ namespace webzy.WebApplication.CustomerManagement
 			LoadCountry();
 			LoadCustomerStatus();
 			LoadSiteStatus();
-
 		}
 
 		private void disableControls()
@@ -74,6 +73,7 @@ namespace webzy.WebApplication.CustomerManagement
 			LoadCustomerInfo(CustomerId);
 			LoadSiteGridView();
 		}
+		
 		private void LoadSiteGridView()
 		{
 			try
@@ -227,18 +227,55 @@ namespace webzy.WebApplication.CustomerManagement
 		{
 			SiteView SiteInfo = customerHelper.GetSiteInfoBy(SiteId);
 			txtSiteName.Text = SiteInfo.SiteName;
-			txtSiteAddress.Text = SiteInfo.SiteAddress; //TODO : need to fix on display on address,address1 and address2;
+			txtSiteAddress.Text = SiteInfo.SiteAddress.ToString();
 			ddlCountry.SelectedValue = SiteInfo.CountryFk.ToString();
 			ddlSiteStatus.SelectedValue = SiteInfo.SiteStatusId.ToString();
-			ShowSitePanel();
+			ShowSitePanel(SiteId);
 		}
 
-		private void ShowSitePanel()
+		private void ShowSitePanel(int SiteId)
 		{
 			SiteInfoPannel.Visible = true;
 			SiteInfoPannel.CssClass = "PopupBox";
 			backgroudContact.Visible = true;
 			backgroudContact.CssClass = "Popup_background_Pannel";
+			if (ViewState["UpdateSiteId"] != null)
+			{
+				ViewState["UpdateSiteId"] = null;
+			}
+			ViewState["UpdateSiteId"] = SiteId;
+		}
+		
+		private void HideSiteInfoPanel()
+		{
+			SiteInfoPannel.Visible = false;
+			SiteInfoPannel.CssClass = "";
+			backgroudContact.Visible = false;
+			backgroudContact.CssClass = "";
+			ViewState["UpdateSiteId"] = null;
+		}
+
+		private bool ValidateUI()
+		{
+			if (string.IsNullOrWhiteSpace(this.txtSiteAddress.Text))
+			{
+				lblSiteErrorMsg.Text = "Please enter the site address";
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+
+		private bool ValidateCustomerUI()
+		{
+			if (string.IsNullOrWhiteSpace(txtCustomerName.Text))
+			{
+				lblErrorMsg.Text = "Please enter the Customer name";
+				return false;
+			}
+			return true;
 		}
 
 		#endregion
@@ -250,7 +287,7 @@ namespace webzy.WebApplication.CustomerManagement
 			{
 				int SelectedRow = e.NewSelectedIndex;
 				GridViewRow row = GridViewSiteInfo.Rows[SelectedRow];
-				int SiteId = Convert.ToInt32(row.Cells[2].Text.ToString().Trim());
+				int SiteId = Convert.ToInt32(row.Cells[1].Text.ToString().Trim());
 				LoadSitePanel(SiteId);
 			}
 			catch (Exception ex)
@@ -272,6 +309,50 @@ namespace webzy.WebApplication.CustomerManagement
 			}
 		}
 
+		protected void btnSiteUpdate_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				if (ValidateUI())
+				{
+					int SiteId = Convert.ToInt32(ViewState["UpdateSiteId"].ToString().Trim());
+					string SiteName = (txtSiteName.Text.Length > 0) ? txtSiteName.Text.ToString().Trim() : string.Empty;
+					string SiteAddress = txtSiteAddress.Text;
+					int CountryFk = Convert.ToInt32(ddlCountry.SelectedValue);
+					int SiteStatus = Convert.ToInt32(ddlSiteStatus.SelectedValue);
+					int CustomerFK = Convert.ToInt32(ViewState["CustomerId"].ToString().Trim());
+					customerHelper.updateSite(SiteId,CustomerFK, CountryFk, SiteName, SiteAddress, SiteStatus, Current_User.Name, txtCustomerName.Text, ddlCountry.SelectedItem.Text, ddlSiteStatus.SelectedItem.Text);
+					lblErrorMsg.Text = " Site update succesfully.";
+					HideSiteInfoPanel();
+				}
+				LoadSiteGridView();
+			}
+			catch (Exception ex)
+			{
+				lblErrorMsg.Text = ("Unable to update the site details" + ex.Message + "");
+			}
+		}
+
+		protected void btnCustomerUpdate_Click(object sender, EventArgs e)
+		{
+			if(ValidateCustomerUI())
+			{
+				string CustomerName = txtCustomerName.Text.ToString().Trim();
+				int CustomerId =  Convert.ToInt32(ViewState["CustomerId"].ToString().Trim());
+				if (customerHelper.duplicateUpdateNames(CustomerName))
+				{
+					lblErrorMsg.Text = "Customer Name already exsit in database.";
+					return;
+				}
+				int statusId = Convert.ToInt32(ddlCustomerStatus.SelectedValue);
+				customerHelper.updateCustomer(CustomerId, CustomerName, statusId, Current_User.Name, ddlCustomerStatus.SelectedItem.Text);
+				lblErrorMsg.Text = "Update Customer successfully.";
+				disableControls();
+			}
+		}
+
+		
+
 		protected void GridViewSiteInfo_Sorting(object sender, GridViewSortEventArgs e)
 		{
 			try
@@ -287,23 +368,31 @@ namespace webzy.WebApplication.CustomerManagement
 
 		protected void btnEdit_Click(object sender, EventArgs e)
 		{
-			txtCustomerName.Enabled = true;
-			ddlCustomerStatus.Enabled = true;
-			GridViewSiteInfo.Enabled = true;
-			btnCustomerUpdate.Visible = true;
-			btnEdit.Visible = false;
+			if (AccessRight(Current_User.Rights, "[Customer]<2>"))
+			{
+				txtCustomerName.Enabled = true;
+				ddlCustomerStatus.Enabled = true;
+				GridViewSiteInfo.Enabled = true;
+				btnCustomerUpdate.Visible = true;
+				btnEdit.Visible = false;
+			}
+			else
+			{
+				lblErrorMsg.Text = "Sorry, You do not have rights to edit this customer";
+			}
 		}
 
 		protected void btnSiteCancel_Click(object sender, EventArgs e)
 		{
-			SiteInfoPannel.Visible = false;
-			SiteInfoPannel.CssClass = "";
-			backgroudContact.Visible = false;
-			backgroudContact.CssClass = "";
+			HideSiteInfoPanel();
 		}
 
-		#endregion
+		protected void btnCancel_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("~/CustomerManagement/CustomerManagementView.aspx");
+		}
 
-		
+		#endregion		
+
 	}
 }
