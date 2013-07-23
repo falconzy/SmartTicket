@@ -56,6 +56,9 @@
     <Compile Include="ContactPersonLog.cs">
       <DependentUpon>webzyModelEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="ContactPersonView.cs">
+      <DependentUpon>webzyModelEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Country.cs">
       <DependentUpon>webzyModelEntities.tt</DependentUpon>
     </Compile>

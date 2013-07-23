@@ -140,7 +140,7 @@
 		</div>
 	</div>
 	</div>
-	<div id="footer" class="txtCenter"></div>
+	
 	</form>
 </body>
 </html>

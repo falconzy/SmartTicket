@@ -9,6 +9,7 @@ namespace webzy.BizModule.Miscellaneous
 {
 	public class ControlHelper
 	{
+
 		public List<Status> loadSummaryStatus()
 		{
 			try
@@ -50,19 +51,19 @@ namespace webzy.BizModule.Miscellaneous
 			}
 		}
 
-        public bool CheckEmailFormat(string email)
-        {
-            bool correctFormat = false;
+		public bool CheckEmailFormat(string email)
+		{
+			bool correctFormat = false;
 
-            Regex rg = new Regex(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
-            Match mt = rg.Match(email);
+			Regex rg = new Regex(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*");
+			Match mt = rg.Match(email);
 
-            if (mt.Success)
-            {
-                correctFormat = true;
-            }
-            return correctFormat;
-        }
+			if (mt.Success)
+			{
+				correctFormat = true;
+			}
+			return correctFormat;
+		}
 
 		public List<webzy.DataEntities.Group> loadGroup()
 		{
@@ -139,6 +140,49 @@ namespace webzy.BizModule.Miscellaneous
 				throw new Exception(ex.Message.ToString());
 			}
 
+		}
+
+		public List<Customer> loadCustomer()
+		{
+			try
+			{
+				List<Customer> dtCustomer = new List<Customer>();
+
+				using (webzyEntities ctx = new webzyEntities())
+				{
+					dtCustomer = (from c in ctx.Customers
+								  orderby c.Name ascending
+								  select c).ToList<Customer>();
+				}
+				return dtCustomer;
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
+		}
+
+        public List<Customer> loadSummaryCustomer()
+		{
+			try
+			{
+				List<Customer> dtSummaryCustomer = new List<Customer>();
+
+				using (webzyEntities ctx = new webzyEntities())
+				{
+                    dtSummaryCustomer = (from c in ctx.Customers
+								  orderby c.Name ascending
+								  select c).ToList<Customer>();
+				}
+                Customer customer = new Customer();
+                customer.Name = "ALL";
+                dtSummaryCustomer.Insert(0, customer);
+                return dtSummaryCustomer;
+			}
+			catch (Exception ex)
+			{
+				throw ex;
+			}
 		}
 	}
 }

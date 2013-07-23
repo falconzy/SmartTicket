@@ -63,6 +63,7 @@ namespace webzy.DataEntities
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerView> CustomerViews { get; set; }
         public DbSet<SiteView> SiteViews { get; set; }
+        public DbSet<ContactPersonView> ContactPersonViews { get; set; }
         public DbSet<Site> Sites { get; set; }
     }
 }

@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactManagement\ContactHelper.cs" />
     <Compile Include="CustomerManagement\CustomerHelper.cs" />
     <Compile Include="GroupManagement\GroupHelper.cs" />
     <Compile Include="Miscellaneous\ControlHelper.cs" />

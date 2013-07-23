@@ -6,8 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-	<title>Customer View</title>
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<title>Customer View</title>s
 	<link href="../Styles/Main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>

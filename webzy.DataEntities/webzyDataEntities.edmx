@@ -40,6 +40,20 @@
           <EntitySet Name="WebUserLog" EntityType="webzyModel.Store.WebUserLog" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="WebUserRole" EntityType="webzyModel.Store.WebUserRole" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="WebUserRoleLog" EntityType="webzyModel.Store.WebUserRoleLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ContactPersonView" EntityType="webzyModel.Store.ContactPersonView" store:Type="Views" store:Schema="dbo" store:Name="ContactPersonView">
+            <DefiningQuery>SELECT 
+      [ContactPersonView].[Id] AS [Id], 
+      [ContactPersonView].[CustomerName] AS [CustomerName], 
+      [ContactPersonView].[Name] AS [Name], 
+      [ContactPersonView].[HPNumber] AS [HPNumber], 
+      [ContactPersonView].[OfficeNumber] AS [OfficeNumber], 
+      [ContactPersonView].[EmailAddress] AS [EmailAddress], 
+      [ContactPersonView].[StatusName] AS [StatusName], 
+      [ContactPersonView].[Remark] AS [Remark], 
+      [ContactPersonView].[ModifiedBy] AS [ModifiedBy], 
+      [ContactPersonView].[ModifiedOn] AS [ModifiedOn]
+      FROM [dbo].[ContactPersonView] AS [ContactPersonView]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="CustomerView" EntityType="webzyModel.Store.CustomerView" store:Type="Views" store:Schema="dbo" store:Name="CustomerView">
             <DefiningQuery>SELECT 
       [CustomerView].[CustomerName] AS [CustomerName], 
@@ -667,6 +681,29 @@
           <Property Name="ModifiedOn" Type="datetime" />
         </EntityType>
         <!--Errors Found During Generation:
+      warning 6002: The table/view 'webzy.dbo.ContactPersonView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="ContactPersonView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="StatusName" />
+            <PropertyRef Name="ModifiedBy" />
+            <PropertyRef Name="ModifiedOn" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="HPNumber" Type="varchar" MaxLength="50" />
+          <Property Name="OfficeNumber" Type="varchar" MaxLength="50" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="200" />
+          <Property Name="StatusName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Remark" Type="varchar" MaxLength="250" />
+          <Property Name="ModifiedBy" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="ModifiedOn" Type="datetime" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
       warning 6002: The table/view 'webzy.dbo.CustomerView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
       -->
         <EntityType Name="CustomerView">
@@ -1195,6 +1232,7 @@
           </AssociationSet>
           <EntitySet Name="CustomerViews" EntityType="webzyModel.CustomerView" />
           <EntitySet Name="SiteViews" EntityType="webzyModel.SiteView" />
+          <EntitySet Name="ContactPersonViews" EntityType="webzyModel.ContactPersonView" />
           <EntitySet Name="Sites" EntityType="webzyModel.Site" />
           <AssociationSet Name="FK_Site_Country" Association="webzyModel.FK_Site_Country">
             <End Role="Country" EntitySet="Countries" />
@@ -2058,6 +2096,26 @@
           <Property Type="Int32" Name="CountryFk" />
           <Property Type="Int32" Name="CustomerId" Nullable="false" />
         </EntityType>
+        <EntityType Name="ContactPersonView">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="CustomerName" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="StatusName" />
+            <PropertyRef Name="ModifiedBy" />
+            <PropertyRef Name="ModifiedOn" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HPNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OfficeNumber" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailAddress" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StatusName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ModifiedBy" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="ModifiedOn" Nullable="false" />
+        </EntityType>
         <EntityType Name="Site">
           <Key>
             <PropertyRef Name="Id" />
@@ -2623,6 +2681,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="ContactPersonViews">
+            <EntityTypeMapping TypeName="webzyModel.ContactPersonView">
+              <MappingFragment StoreEntitySet="ContactPersonView">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="OfficeNumber" ColumnName="OfficeNumber" />
+                <ScalarProperty Name="HPNumber" ColumnName="HPNumber" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Sites">
             <EntityTypeMapping TypeName="webzyModel.Site">
               <MappingFragment StoreEntitySet="Site">
@@ -2774,41 +2848,33 @@
           <ConnectorPoint PointX="18" PointY="9.961293945312498" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_Tickets_TicketPriority" >
-          <ConnectorPoint PointX="17.25" PointY="13.057444661458334" />
-          <ConnectorPoint PointX="18.057287916666667" PointY="13.057444661458334" />
-          <ConnectorPoint PointX="18.223954583333331" PointY="13.057444661458334" />
-          <ConnectorPoint PointX="18.260414166666667" PointY="13.057444661458334" />
-          <ConnectorPoint PointX="18.427080833333331" PointY="13.057444661458334" />
-          <ConnectorPoint PointX="18.463540416666667" PointY="13.057444661458334" />
-          <ConnectorPoint PointX="18.630207083333332" PointY="13.057444661458334" />
-          <ConnectorPoint PointX="18.75" PointY="13.057444661458334" />
-          <ConnectorPoint PointX="18.75" PointY="11.191549479166667" />
+          <ConnectorPoint PointX="17.25" PointY="12.28125" />
+          <ConnectorPoint PointX="17.940102916666667" PointY="12.28125" />
+          <ConnectorPoint PointX="18.153642083333331" PointY="12.28125" />
+          <ConnectorPoint PointX="18.15625" PointY="12.28125" />
+          <ConnectorPoint PointX="18.15625" PointY="11.191549479166667" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_Tickets_ReportMethod" >
-          <ConnectorPoint PointX="17.25" PointY="15.961293945312498" />
-          <ConnectorPoint PointX="18.057287916666667" PointY="15.961293945312498" />
-          <ConnectorPoint PointX="18.223954583333331" PointY="15.961293945312498" />
-          <ConnectorPoint PointX="18.3437475" PointY="15.961293945312498" />
-          <ConnectorPoint PointX="18.3437475" PointY="11.191549479166667" />
+          <ConnectorPoint PointX="17.25" PointY="16.400940755208332" />
+          <ConnectorPoint PointX="18.0468725" PointY="16.400940755208332" />
+          <ConnectorPoint PointX="18.0468725" PointY="11.191549479166667" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_Tickets_TicketResolution" >
           <ConnectorPoint PointX="17.25" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="18.057287916666667" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="18.223954583333331" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="18.463540416666667" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="18.630207083333332" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="19.1562525" PointY="18.961293945312498" />
-          <ConnectorPoint PointX="19.1562525" PointY="11.191549479166667" />
+          <ConnectorPoint PointX="17.940102916666667" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="18.153642083333331" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="18.2656275" PointY="18.961293945312498" />
+          <ConnectorPoint PointX="18.2656275" PointY="11.191549479166667" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_Tickets_TicketStatus" >
           <ConnectorPoint PointX="17.25" PointY="21.836293945312498" />
-          <ConnectorPoint PointX="18.14062125" PointY="21.836293945312498" />
-          <ConnectorPoint PointX="18.14062125" PointY="11.191549479166667" />
+          <ConnectorPoint PointX="18.02343625" PointY="21.836293945312498" />
+          <ConnectorPoint PointX="18.02343625" PointY="11.191549479166667" />
         </AssociationConnector>
         <AssociationConnector Association="webzyModel.FK_Tickets_TicketType" >
           <ConnectorPoint PointX="17.25" PointY="24.836293945312498" />
-          <ConnectorPoint PointX="18.54687375" PointY="24.836293945312498" />
-          <ConnectorPoint PointX="18.54687375" PointY="11.191549479166667" />
+          <ConnectorPoint PointX="18.07030875" PointY="24.836293945312498" />
+          <ConnectorPoint PointX="18.07030875" PointY="11.191549479166667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="webzyModel.Customer" Width="1.5" PointX="5.25" PointY="0.75" Height="3.1340950520833246" />
         <AssociationConnector Association="webzyModel.FK_ContactPerson_Customer" >
@@ -2837,6 +2903,7 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="webzyModel.CustomerView" Width="1.5" PointX="7.375" PointY="16.75" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="webzyModel.SiteView" Width="1.5" PointX="9.375" PointY="17.75" Height="2.7494921875000102" />
+        <EntityTypeShape EntityType="webzyModel.ContactPersonView" Width="1.5" PointX="18.375" PointY="12.75" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="webzyModel.Site" Width="1.5" PointX="10" PointY="0.75" Height="3.3263964843750102" />
         <AssociationConnector Association="webzyModel.FK_Site_Country" >
           <ConnectorPoint PointX="8.5" PointY="2.375" />
